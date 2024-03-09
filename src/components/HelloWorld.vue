@@ -1,12 +1,12 @@
 <template>
-  <div class="w-[80%] m-auto">
+  <img class="w-[80%] m-auto" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+  <div class="w-[80%] m-auto shadow-lg shadow-red-500 p-4">
     <div class="flex">
       <img src="@/assets/img/logo_tp.png">
       <img class="rounded-lg ml-8 mb-3" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
     </div>
     <div class="nav">
       <div class="flex justify-around items-center bg-red-500 text-white h-10">
-          
         <span>ВСЕ КАТЕГОРИИ</span>
         <span>НОВОСТИ</span>
         <span>СТАТЬИ</span>
@@ -16,12 +16,11 @@
         <span>ЧЛЕНЫ СППТ</span>
         <span>ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
         <span>ПОИСК</span>
-          
       </div>
     </div>
     <div class="second-nav">
-      <div class="flex justify-around items-center h-10">
-        <span>НОВОСТИ</span>
+      <div class="flex justify-around items-center h-20">
+        <span class="text-4xl">НОВОСТИ</span>
         <span>Дайджест</span>
         <span>Политика</span>
         <span>Культура</span>
@@ -58,13 +57,13 @@
       </div>
       <div class="mt-3">
         <img class="my-3 rounded-lg" src="@/assets/img/53daeb106dab95f9c75ffc67d6f5c2d8.gif">
-        <img class="my-10" src="@/assets/img/videoframe_3341.png">
+        <img class="my-8" src="@/assets/img/videoframe_3341.png">
       </div>
     </div>
     <div>
-      <img style="position: absolute; bottom: 100px" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
+      <img style="position: absolute; bottom: -3rem;" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
     </div>
-    <div class="">
+    <section class="flex justify-between mt-8">
       <div class="СПОРТ w-[30%]">
         <div class="flex justify-between items-end">
           <span class="text-4xl">СПОРТ</span>
@@ -73,19 +72,87 @@
         <hr class="border-t-2 border-black my-3">
         <div class="flex flex-col ">
           <div class="flex" v-for="(games, i) in sport" :key="i">
-            <img class="m-3 rounded-lg" :src="games.image">
+            <img class="m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
             <div class="flex flex-col text-left m-3">
-              <div>
+              <div class="text-red-600 text-sm">
                 {{ games.text }}
               </div>
-              <div>
+              <div class="text-sm">
                 {{ games.content }}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="Бизнес w-[30%]">
+        <div class="flex justify-between items-end">
+          <span class="text-4xl">БИЗНЕС</span>
+          <span class="text-sm">Показать еще</span>
+        </div>
+        <hr class="border-t-2 border-black my-3">
+        <div class="flex flex-col ">
+          <div class="flex" v-for="(business, i) in biznes" :key="i">
+            <img :src="business.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
+            <div class="flex flex-col text-left m-3">
+              <div class="text-red-600 text-sm">
+                {{ business.text }}
+              </div>
+              <div class="text-sm">
+                {{ business.content }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="В Мире w-[30%]">
+        <div class="flex justify-between items-end">
+          <span class="text-4xl">В МИРЕ</span>
+          <span class="text-sm">Показать еще</span>
+        </div>
+        <hr class="border-t-2 border-black my-3">
+        <div class="flex flex-col ">
+          <div class="flex" v-for="(world, i) in mir" :key="i">
+            <img :src="world.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
+            <div class="flex flex-col text-left m-3">
+              <div class="text-red-600 text-sm">
+                {{ world.data }}
+              </div>
+              <div class="text-sm">
+                {{ world.content }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="margin-top: 4rem; margin-bottom: 5rem;">
+      <img class="m-3 rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
+    </section>
+    <nav class="third-nav flex justify-left items-end">
+      <span class="text-4xl">СТАТЬИ</span>
+      <div class="mx-3">
+        <span class="mx-3">Выдающиеся личности Туркменистана</span>
+        <span class="mx-3">Образование</span>
+        <span class="mx-3">Спорт</span>
+        <span class="mx-3">Hi-Tech</span>
+        <span class="mx-3">Туризм</span>
+        <span class="mx-3">Авто</span>
+      </div>
+      <div class="w-[29%] text-right">
+        <span class="">Показать еще</span>
+      </div>
+    </nav>
+    <hr class="border-t-2 border-black my-3">
+    <section class="mt-5">
+      <div class="flex justify-between">
+        <div v-for="(status , i) in statyi" :key="i">
+          <img class="rounded-lg" :src="status.image" style="width: 180px; height: 120px;">
+          <div class="w-[180px] mt-3 text-sm">
+            {{ status.content }}
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -135,7 +202,7 @@ export default {
         content: '«Реал» и «Манчестер Сити» вышли в 1/4 финала Лиги чемпионов УЕФА',
       },
       {
-        image: require('@/assets/sport/2a6bcea488477a85ccfc5986d5c3fb8e-8967072-90x114-2.webp'),
+        image: require('@/assets/sport/a15e408cd2f7f47d2a2cc60ea15b6da4-8966734-90x114-2.webp'),
         text: 'Сегодня 10:46',
         content: 'Гол Теймура Чарыева помог «Абдыш-Ате» разгромить «Тайчунг Футуро» в четвертьфинале Кубка АФК',
       },
@@ -159,7 +226,97 @@ export default {
         text: '05.03.2024',
         content: 'Туркменские вузы определили сильнейших боксеров на Универсиаде в Ашхабаде',
       },
-  ]
+    ],
+    biznes: [
+      {
+        image: require('@/assets/bisnez/db12c5f49d91ddc214d67209e533cf26-8967268-90x114-2.webp'),
+        text: 'Сегодня 10:39',
+        content: 'Ресторан Soltan в ТРЦ «Беркарар» принимает заявки на изготовление тортов'
+      },
+      {
+        image: require('@/assets/bisnez/f12d1b487aa42274e302df8f4197c2e0-8967175-90x114-2.webp'),
+        text: '07.03.2024',
+        content: 'Мобильное приложение Broker: новый подход к тендерам и аукционам'
+      },
+      {
+        image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
+        text: '07.03.2024',
+        content: 'Туркменистан представил свой туристический потенциал на ITB Berlin 2024'
+      },
+      {
+        image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
+        text: '07.03.2024',
+        content: 'Däp представляет новую весеннюю коллекцию URBAN'
+      },
+      {
+        image: require('@/assets/bisnez/9c7a0bf465452af1a97e8fba5375b627-8967086-90x114-2.webp'),
+        text: '07.03.2024',
+        content: '«Туркменпочта»: надежная и быстрая доставка грузов в любой уголок Туркменистана'
+      },
+      {
+        image: require('@/assets/bisnez/871b00a4e0a067fc0cb2c58389893434-8967062-90x114-2.webp'),
+        text: '07.03.2024',
+        content: 'В магазине EuroHome TM назвали преимущества европейских брендов сантехники'
+      }
+    ],
+    mir: [
+      {
+        image: require('@/assets/v-mire/811c14551c6504a23a17724f0141825f-8967314-90x114-2.webp'),
+        data: 'Сегодня 14:28',
+        content: 'Юрию Гагарину сегодня исполнилось бы 90 лет'
+      },
+      {
+        image: require('@/assets/v-mire/437aa6b9407a0085619bedf8fcbd74c5-8967313-90x114-2.webp'),
+        data: 'Сегодня 14:22',
+        content: 'Эрдоган заявил, что не будет баллотироваться в 2028 году'
+      },
+      {
+        image: require('@/assets/v-mire/833cfc273cddeded8669a184db49f606-8967282-90x114-2.webp'),
+        data: 'Сегодня 11:34',
+        content: '«Сёгун» бьет рекорды на стриминге'
+      },
+      {
+        image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
+        data: 'Сегодня 10:49',
+        content: 'Человек оказался главным кошмаром дикой природы'
+      },
+      {
+        image: require('@/assets/v-mire/f1e85c4d20c2e98ba3b9faae4fbc1829-8967263-90x114-2.webp'),
+        data: 'Сегодня 10:27',
+        content: 'Британские ученые создают методы по раскрытию преступлений в космосе'
+      },
+      {
+        image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
+        data: 'Сегодня 09:37',
+        content: 'Исследование: сигнал тревоги медицинского оборудования может не спасти пациентов от гибели'
+      }
+    ],
+    statyi: [
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/e274bc53cb2087f4b23a14b7220bdd90-8966883-180x134-2.webp'),
+        content: 'За кадром: истории женщин, которые изменили киноиндустрию'
+      },
+      {
+        image: require('@/assets/Statyi/fa537dc208401ea7cefc76255cb044c1-8966290-180x134-2.webp'),
+        content: 'Как красиво разрезать торт: советы от кондитера Zyýat Hil'
+      },
+      {
+        image: require('@/assets/Statyi/c6876ec2a4bc7b013647ed337014b884-8966209-180x134-2.webp'),
+        content: 'Тот самый Хемра Широв'
+      },
+      {
+        image: require('@/assets/Statyi/2e7cc376a32d896b19c9564558813e3a-8966105-180x134-2.webp'),
+        content: 'Миссия выполнима: как привести себя в форму к лету за три месяца'
+      },
+      {
+        image: require('@/assets/Statyi/771f6b653f3c49317d0cb0f10026d0a0-8966014-180x134-2.webp'),
+        content: 'Экологическая безопасность производства – что важно знать работодателю'
+      }
+    ]
   }),
 }
 </script>
