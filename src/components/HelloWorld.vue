@@ -128,7 +128,7 @@
     <section style="margin-top: 4rem; margin-bottom: 5rem;">
       <img class="m-3 rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
     </section>
-    <nav class="third-nav flex justify-left items-end">
+    <nav class="flex justify-left items-end">
       <span class="text-4xl">СТАТЬИ</span>
       <div class="mx-3">
         <span class="mx-3">Выдающиеся личности Туркменистана</span>
@@ -153,6 +153,96 @@
         </div>
       </div>
     </section>
+    <nav class="flex justify-left items-end" style="margin-top: 4rem;">
+      <span class="text-4xl">АФИША</span>
+      <div class="mx-3">
+        <span class="mx-3">Выставки</span>
+        <span class="mx-3">Детям</span>
+        <span class="mx-3">Кинотеатры</span>
+        <span class="mx-3">Клубы</span>
+        <span class="mx-3">Концерты</span>
+        <span class="mx-3">События</span>
+      </div>
+      <div class="w-[50%] text-right">
+        <span class="">Показать еще</span>
+      </div>
+    </nav>
+    <hr class="border-t-2 border-black my-3">
+    <section class="mt-5">
+      <div class="flex justify-between">
+        <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
+          <img :src="anons.image">
+          <div class="w-[180px] mt-5 text-sm px-4">
+            {{ anons.content }}
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="flex justify-between" style="margin-top: 5rem;">
+      <div class="w-[50%]">
+        <nav class="flex justify-left items-end">
+          <span class="text-4xl">ТЕНДЕРЫ</span>
+          <div class="mx-3">
+            <span class="mx-3">Государственные</span>
+            <span class="mx-3">Коммерческие</span>
+          </div>
+          <div class="ml-8">
+            <span class="">Показать еще</span>
+          </div>
+        </nav>
+        <hr class="border-t-2 border-black my-3">
+        <div style="display: flex; flex-wrap: wrap;">
+          <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 10px; margin: 5px;">
+            <div class="flex">
+              <div class="text-sm">
+                {{ trends.vrema }}
+              </div>
+              <div class="text-sm ml-3">
+                {{ trends.data }}
+              </div>
+              <div style="border-right: 2px solid #000; height: 20px; margin-left: 6px;"></div>
+              <img src="" alt="">
+            </div>
+            <div class="text-sm text-blue-500 pt-2">
+              {{ trends.content }}
+            </div>
+            <hr class="border-t-2 border-black my-3">
+          </div>
+        </div>
+      </div>
+      <div class="w-[45%]">
+        <nav class="flex justify-left items-end">
+          <span class="text-4xl">ОБЪЯВЛЕНИЯ</span>
+          <div class="mx-10">
+            <span>Прочие</span>
+          </div>
+          <div class="ml-12">
+            <span>Показать еще</span>
+          </div>
+        </nav>
+        <hr class="border-t-2 border-black my-3">
+        <div>
+          <div v-for="(ads, i) in obyavlenia" :key="i">
+            <img :src="ads.img">
+            <div class="flex">
+              <div class="text-sm text-blue-500 pt-2">
+                {{ ads.title }}
+              </div>
+              <div class="text-sm">
+                {{ ads.vrema }}
+              </div>
+              <div class="text-sm ml-3">
+                {{ ads.data }}
+              </div>
+            </div>
+            <div>
+              {{ ads.descr }}
+            </div>
+            <hr class="border-t-2 border-black my-3">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -316,6 +406,118 @@ export default {
         image: require('@/assets/Statyi/771f6b653f3c49317d0cb0f10026d0a0-8966014-180x134-2.webp'),
         content: 'Экологическая безопасность производства – что важно знать работодателю'
       }
+    ],
+    afisha: [
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+    ],
+    tendery: [
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+      { 
+        vrema: '14:35',
+        data: '23.02.2024',
+        content: 'АОЗТ «Морской торговый флот» объявляет тендер на закупку запасных частей для нефтяного танкера «Битарап»'
+      },
+    ],
+    obyavlenia: [
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
+      {
+        img: require('@/assets/obyavlenie/6918492e98b2647b442f0a4c098fce03-8967808-70x90-2.webp'),
+        title: 'Таможенное оформление грузов! Профессионализм и надёжность!',
+        descr: 'Aýbölek Faberlic Aşgabat +99361704962',
+        vrema: '16:04',
+        data: '13.03.2024'
+      },
     ]
   }),
 }
