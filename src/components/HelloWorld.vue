@@ -69,7 +69,7 @@
           <span class="text-4xl">СПОРТ</span>
           <span class="text-sm">Показать еще</span>
         </div>
-        <hr class="border-t-2 border-black my-3">
+        <hr class="border-t-2 border-grey my-3">
         <div class="flex flex-col ">
           <div class="flex" v-for="(games, i) in sport" :key="i">
             <img class="m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
@@ -89,7 +89,7 @@
           <span class="text-4xl">БИЗНЕС</span>
           <span class="text-sm">Показать еще</span>
         </div>
-        <hr class="border-t-2 border-black my-3">
+        <hr class="border-t-2 border-grey my-3">
         <div class="flex flex-col ">
           <div class="flex" v-for="(business, i) in biznes" :key="i">
             <img :src="business.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
@@ -109,7 +109,7 @@
           <span class="text-4xl">В МИРЕ</span>
           <span class="text-sm">Показать еще</span>
         </div>
-        <hr class="border-t-2 border-black my-3">
+        <hr class="border-t-2 border-grey my-3">
         <div class="flex flex-col ">
           <div class="flex" v-for="(world, i) in mir" :key="i">
             <img :src="world.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
@@ -142,7 +142,7 @@
         <span class="">Показать еще</span>
       </div>
     </nav>
-    <hr class="border-t-2 border-black my-3">
+    <hr class="border-t-2 border-grey my-3">
     <section class="mt-5">
       <div class="flex justify-between">
         <div v-for="(status , i) in statyi" :key="i">
@@ -167,7 +167,7 @@
         <span class="">Показать еще</span>
       </div>
     </nav>
-    <hr class="border-t-2 border-black my-3">
+    <hr class="border-t-2 border-grey my-3">
     <section class="mt-5">
       <div class="flex justify-between">
         <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
@@ -190,23 +190,24 @@
             <span class="">Показать еще</span>
           </div>
         </nav>
-        <hr class="border-t-2 border-black my-3">
+        <hr class="border-t-2 border-grey my-3">
         <div style="display: flex; flex-wrap: wrap;">
           <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 10px; margin: 5px;">
-            <div class="flex">
+            <div class="flex items-center">
               <div class="text-sm">
                 {{ trends.vrema }}
               </div>
               <div class="text-sm ml-3">
                 {{ trends.data }}
               </div>
-              <div style="border-right: 2px solid #000; height: 20px; margin-left: 6px;"></div>
-              <img src="" alt="">
+              <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
+              <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 15px;" >
+              <span style="font-size: 10px; margin-left: 3px;">2927</span>
             </div>
-            <div class="text-sm text-blue-500 pt-2">
+            <div class="text-sm text-blue-800 pt-2">
               {{ trends.content }}
             </div>
-            <hr class="border-t-2 border-black my-3">
+            <hr class="border-t-2 border-grey my-3">
           </div>
         </div>
       </div>
@@ -220,27 +221,94 @@
             <span>Показать еще</span>
           </div>
         </nav>
-        <hr class="border-t-2 border-black my-3">
-        <div>
-          <div v-for="(ads, i) in obyavlenia" :key="i">
-            <img :src="ads.img">
-            <div class="flex">
-              <div class="text-sm text-blue-500 pt-2">
+        <hr class="border-t-2 border-grey my-3">
+        <div class="flex flex-col">
+          <div class="flex items-center" v-for="(ads, i) in obyavlenia" :key="i">
+            <img :src="ads.img" style="width: 75px; height: 75px" class="rounded-lg">
+            <div class="flex flex-col m-3">
+              <div class="font-semibold" style="font-size: 15px;">
                 {{ ads.title }}
               </div>
               <div class="text-sm">
-                {{ ads.vrema }}
+                {{ ads.descr }}
               </div>
-              <div class="text-sm ml-3">
-                {{ ads.data }}
+              <div class="flex items-center">
+                <div class="text-xs">
+                  {{ ads.vrema }}
+                </div>
+                <div class="text-xs ml-3">
+                  {{ ads.data }}
+                </div>
+                <div style="border-right: 1px solid grey; height: 20px; margin-left: 10px;"></div>
+                <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 10px;" >
+                <span style="font-size: 10px; margin-left: 4px;">2927</span>
               </div>
-            </div>
-            <div>
-              {{ ads.descr }}
             </div>
             <hr class="border-t-2 border-black my-3">
           </div>
         </div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem;">
+      <img src="@/assets/img/9134dc8eaf6cf0eba497f6133a3f8fa3.jpg" class="rounded-lg">
+    </div>
+    <div style="margin-top: 4rem;">
+      <nav class="flex justify-between items-end">
+        <span class="text-4xl">МЕДИА</span>
+        <div class="w-[80%]">
+          <span class="mx-3">Дайджест</span>
+          <span class="mx-3">Наши видео</span>
+          <span class="mx-3">Общество</span>
+          <span class="mx-3">Афиши</span>
+          <span class="mx-3">Бизнес</span>
+          <span class="mx-3">Спорт</span>
+        </div>
+        <div class="">
+          <span class="">Показать еще</span>
+        </div>
+      </nav>
+      <hr class="border-t-2 border-grey my-3">
+      <section class="mt-5">
+        <div class="flex">
+          <div v-for="( habarlar , i) in media" :key="i" class="relative m-1 rounded-lg shadow-lg">
+            <img :src="habarlar.img">
+            <div class="absolute inset-0 text-red-600 text-xl font-semibold flex items-end justify-start p-2">
+              {{ habarlar.text }}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div style="margin-top: 5rem;" class="bg-black flex justify-center items-center flex-col h-[450px]">
+      <img src="@/assets/footer/tp_white_logo_320.png">
+      <div class="text-white flex w-[750px] flex-wrap items-center justify-center mt-5">
+        <span>Реклама</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Сотрудничество</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Вакансии</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Правила</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Контакты</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Создание сайтов в Туркменистане</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Информационное обеспечение</span>
+        <div style="border-left: 1px solid white; height: 22px;" class="mx-4"></div>
+        <span>Размещение PR статей</span>
+      </div>
+      <span class="text-white mt-5 font-bold text-xl p-3">Скачайте наше приложение</span>
+      <div class="flex">
+        <img src="@/assets/footer/google.png">
+        <img src="@/assets/footer/apple.png">
+      </div>
+      <div style="width: 100%; background-color: white; height: 1px;" class="my-6"></div>
+      <div>
+        <p class="text-white text-center ">
+          Все права защищены. При использовании материалов с сайта ссылка на turkmenportal.com обязательна.
+          Свидетельство о регистрации средства массовой информации ЭЛ № ФС 77 - 68969 от 07.03.2017 г. Роскомнадзор  | 18+
+        </p>
       </div>
     </div>
   </div>
@@ -518,6 +586,20 @@ export default {
         vrema: '16:04',
         data: '13.03.2024'
       },
+    ],
+    media: [
+      {
+        img: require('@/assets/Media/c1f98763e80ea3047bb4175f9f6760a9-8967946-382x254-4.webp'),
+        text: 'Что такое Belet Film?'
+      },
+      {
+        img: require('@/assets/Media/69d6d81d55b58cc623f2404585ee9ae0-8967865-382x254-4.webp'),
+        text: 'Главные новости Туркменистана и мира на 13 марта'
+      },
+      {
+        img: require('@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp'),
+        text: 'Главные новости Туркменистана и мира на 12 марта'
+      }
     ]
   }),
 }
