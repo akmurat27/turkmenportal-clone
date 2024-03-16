@@ -1,6 +1,6 @@
 <template>
   <img class="w-[80%] m-auto" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-  <div class="w-[80%] m-auto shadow-lg shadow-red-500 p-4">
+  <div class="w-[80%] m-auto shadow-lg shadow-red-500">
     <div class="flex">
       <img src="@/assets/img/logo_tp.png">
       <img class="rounded-lg ml-8 mb-3" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
@@ -18,22 +18,22 @@
         <span>ПОИСК</span>
       </div>
     </div>
-    <div class="second-nav">
-      <div class="flex justify-around items-center h-20">
-        <span class="text-4xl">НОВОСТИ</span>
-        <span>Дайджест</span>
-        <span>Политика</span>
-        <span>Культура</span>
-        <span>Экономика</span>
-        <span>Образование</span>
-        <span>Туризм</span>
-        <span>Технологии</span>
-        <span>Здоровье</span>
-        <span>Паказать еще</span>
+    <div class="second-nav flex justify-between items-end h-[60px] p-4">
+      <span class="text-4xl">НОВОСТИ</span>
+      <div class="flex">
+        <span class="mx-3">Дайджест</span>
+        <span class="mx-3">Политика</span>
+        <span class="mx-3">Культура</span>
+        <span class="mx-3">Экономика</span>
+        <span class="mx-3">Образование</span>
+        <span class="mx-3">Туризм</span>
+        <span class="mx-3">Технологии</span>
+        <span class="mx-3">Здоровье</span>
       </div>
+      <span>Пoказать еще</span>
     </div>
-    <hr>
-    <div class="flex">
+    <hr style="width: 98%; margin: auto;">
+    <div class="flex p-4">
       <div class="w-[35%] mt-3">
         <img class="rounded-lg" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
         <div class="text-left mt-3">
@@ -60,10 +60,10 @@
         <img class="my-8" src="@/assets/img/videoframe_3341.png">
       </div>
     </div>
-    <div>
+    <div class="p-4">
       <img style="position: absolute; bottom: -3rem;" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
     </div>
-    <section class="flex justify-between mt-8">
+    <section class="flex justify-between mt-8 p-4">
       <div class="СПОРТ w-[30%]">
         <div class="flex justify-between items-end">
           <span class="text-4xl">СПОРТ</span>
@@ -125,10 +125,10 @@
         </div>
       </div>
     </section>
-    <section style="margin-top: 4rem; margin-bottom: 5rem;">
-      <img class="m-3 rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
+    <section style="margin-top: 4rem; margin-bottom: 5rem;" class="p-4">
+      <img class="rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
     </section>
-    <nav class="flex justify-left items-end">
+    <nav class="flex justify-left items-end p-4">
       <span class="text-4xl">СТАТЬИ</span>
       <div class="mx-3">
         <span class="mx-3">Выдающиеся личности Туркменистана</span>
@@ -142,8 +142,8 @@
         <span class="">Показать еще</span>
       </div>
     </nav>
-    <hr class="border-t-2 border-grey my-3">
-    <section class="mt-5">
+    <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
+    <section class="mt-5 p-4">
       <div class="flex justify-between">
         <div v-for="(status , i) in statyi" :key="i">
           <img class="rounded-lg" :src="status.image" style="width: 180px; height: 120px;">
@@ -153,7 +153,7 @@
         </div>
       </div>
     </section>
-    <nav class="flex justify-left items-end" style="margin-top: 4rem;">
+    <nav class="flex justify-left items-end p-4" style="margin-top: 4rem;">
       <span class="text-4xl">АФИША</span>
       <div class="mx-3">
         <span class="mx-3">Выставки</span>
@@ -167,8 +167,8 @@
         <span class="">Показать еще</span>
       </div>
     </nav>
-    <hr class="border-t-2 border-grey my-3">
-    <section class="mt-5">
+    <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
+    <section class="mt-5 p-4">
       <div class="flex justify-between">
         <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
           <img :src="anons.image">
@@ -178,7 +178,7 @@
         </div>
       </div>
     </section>
-    <div class="flex justify-between" style="margin-top: 5rem;">
+    <div class="flex justify-between p-5" style="margin-top: 5rem;">
       <div class="w-[50%]">
         <nav class="flex justify-left items-end">
           <span class="text-4xl">ТЕНДЕРЫ</span>
@@ -192,7 +192,7 @@
         </nav>
         <hr class="border-t-2 border-grey my-3">
         <div style="display: flex; flex-wrap: wrap;">
-          <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 10px; margin: 5px;">
+          <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 5px; margin: 5px;">
             <div class="flex items-center">
               <div class="text-sm">
                 {{ trends.vrema }}
@@ -249,10 +249,10 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 2rem;">
+    <div style="margin-top: 2rem;" class="p-4" >
       <img src="@/assets/img/9134dc8eaf6cf0eba497f6133a3f8fa3.jpg" class="rounded-lg">
     </div>
-    <div style="margin-top: 4rem;">
+    <div style="margin-top: 4rem;" class="p-4">
       <nav class="flex justify-between items-end">
         <span class="text-4xl">МЕДИА</span>
         <div class="w-[80%]">
@@ -268,16 +268,22 @@
         </div>
       </nav>
       <hr class="border-t-2 border-grey my-3">
-      <section class="mt-5">
-        <div class="flex">
-          <div v-for="( habarlar , i) in media" :key="i" class="relative m-1 rounded-lg shadow-lg">
-            <img :src="habarlar.img">
-            <div class="absolute inset-0 text-red-600 text-xl font-semibold flex items-end justify-start p-2">
-              {{ habarlar.text }}
-            </div>
+      <div class="mt-5 flex" id="wrapper">
+        <button id="prev" class="bg-red-500 w-[56px] h-[45px] transform -translate-y-1/2 -translate-x-1/2">
+          <img class="w-[25px] h-[35px]" src="@/assets/Media/chevron-left-icon.svg">  
+        </button>
+        <div v-for="item in items" :key="item.id" id="carousel" class="relative m-1 rounded-lg shadow-lg overflow-y-auto">
+          <div id="content">
+            <img :src="item.img">
+          </div>
+          <div class="absolute inset-0 text-red-600 text-xl font-semibold flex items-end justify-start p-2">
+            {{ item.text }}
           </div>
         </div>
-      </section>
+        <button id="next" class="transform -translate-y-1/2 -translate-x-1/2 bg-red-500 w-[56px] h-[45px]">
+          <img class="w-[25px] h-[35px]" src="@/assets/Media/chevron-right-icon.svg">  
+        </button>
+      </div>
     </div>
     <div style="margin-top: 5rem;" class="bg-black flex justify-center items-center flex-col h-[450px]">
       <img src="@/assets/footer/tp_white_logo_320.png">
@@ -587,7 +593,7 @@ export default {
         data: '13.03.2024'
       },
     ],
-    media: [
+    items: [
       {
         img: require('@/assets/Media/c1f98763e80ea3047bb4175f9f6760a9-8967946-382x254-4.webp'),
         text: 'Что такое Belet Film?'
@@ -595,6 +601,18 @@ export default {
       {
         img: require('@/assets/Media/69d6d81d55b58cc623f2404585ee9ae0-8967865-382x254-4.webp'),
         text: 'Главные новости Туркменистана и мира на 13 марта'
+      },
+      {
+        img: require('@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp'),
+        text: 'Главные новости Туркменистана и мира на 12 марта'
+      },
+      {
+        img: require('@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp'),
+        text: 'Главные новости Туркменистана и мира на 12 марта'
+      },
+      {
+        img: require('@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp'),
+        text: 'Главные новости Туркменистана и мира на 12 марта'
       },
       {
         img: require('@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp'),
