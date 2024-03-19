@@ -1,58 +1,28 @@
-<template>
-    <div>
-      <div ref="carousel" class="overflow-hidden">
-        <div ref="content" class="flex" :style="{ transform: `translateX(-${scroll}px)` }">
-          <!-- Your carousel content here -->
-        </div>
-      </div>
-      <button @click="scrollNext" v-show="showNext">Next</button>
-      <button @click="scrollPrev" v-show="showPrev">Prev</button>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        gap: 16,
-        scroll: 0,
-        width: 0
-      };
-    },
-    computed: {
-      showNext() {
-        return this.$refs.carousel && this.$refs.content &&
-          this.$refs.carousel.offsetWidth + this.$refs.carousel.scrollLeft < this.$refs.content.scrollWidth;
-      },
-      showPrev() {
-        return this.$refs.carousel && this.$refs.carousel.scrollLeft > 0;
-      }
-    },
-    mounted() {
-      this.width = this.$refs.carousel.offsetWidth;
-      window.addEventListener("resize", () => {
-        this.width = this.$refs.carousel.offsetWidth;
-      });
-    },
-    methods: {
-      scrollNext() {
-        this.$refs.carousel.scrollBy(this.width + this.gap, 0);
-        this.scroll = this.$refs.carousel.scrollLeft;
-      },
-      scrollPrev() {
-        this.$refs.carousel.scrollBy(-(this.width + this.gap), 0);
-        this.scroll = this.$refs.carousel.scrollLeft;
-      }
-    }
-  };
-  </script>
-  
-  <style>
-  .overflow-hidden {
-    overflow: hidden;
+const gap = 16;
+
+const carousel = document.getElementById("carousel"),
+  content = document.getElementById("content"),
+  next = document.getElementById("next"),
+  prev = document.getElementById("prev");
+
+next.addEventListener("click", e => {
+  carousel.scrollBy(width + gap, 0);
+  if (carousel.scrollWidth !== 0) {
+    prev.style.display = "flex";
   }
-  .flex {
-    display: flex;
+  if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+    next.style.display = "none";
   }
-  </style>
-  
+});
+prev.addEventListener("click", e => {
+  carousel.scrollBy(-(width + gap), 0);
+  if (carousel.scrollLeft - width - gap <= 0) {
+    prev.style.display = "none";
+  }
+  if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+    next.style.display = "flex";
+  }
+});
+
+let width = carousel.offsetWidth;
+window.addEventListener("resize", e => (width = carousel.offsetWidth));

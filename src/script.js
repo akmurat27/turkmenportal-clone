@@ -1,5 +1,5 @@
 const gap = 16;
-
+console.log('salam')
 const carousel = document.getElementById("carousel"),
   content = document.getElementById("content"),
   next = document.getElementById("next"),

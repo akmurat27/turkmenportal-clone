@@ -268,21 +268,59 @@
         </div>
       </nav>
       <hr class="border-t-2 border-grey my-3">
-      <div class="mt-5 flex" id="wrapper">
-        <button id="prev" class="bg-red-500 w-[56px] h-[45px] transform -translate-y-1/2 -translate-x-1/2">
+      <!-- <div class="mt-5 flex">
+        <button class="bg-red-500 w-[56px] h-[45px]">
           <img class="w-[25px] h-[35px]" src="@/assets/Media/chevron-left-icon.svg">  
         </button>
-        <div v-for="item in items" :key="item.id" id="carousel" class="relative m-1 rounded-lg shadow-lg overflow-y-auto">
-          <div id="content">
+        <div v-for="item in items" :key="item.id" class="relative m-1 rounded-lg shadow-lg">
+          <div>
             <img :src="item.img">
           </div>
           <div class="absolute inset-0 text-red-600 text-xl font-semibold flex items-end justify-start p-2">
             {{ item.text }}
           </div>
         </div>
-        <button id="next" class="transform -translate-y-1/2 -translate-x-1/2 bg-red-500 w-[56px] h-[45px]">
+        <button class="bg-red-500 w-[56px] h-[45px]">
           <img class="w-[25px] h-[35px]" src="@/assets/Media/chevron-right-icon.svg">  
         </button>
+      </div> -->
+      <div class="main">
+        <div id="wrapper">
+          <div id="carousel">
+            <div id="content">
+              <img class="item" src="@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/69d6d81d55b58cc623f2404585ee9ae0-8967865-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/c1f98763e80ea3047bb4175f9f6760a9-8967946-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/c1f98763e80ea3047bb4175f9f6760a9-8967946-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/69d6d81d55b58cc623f2404585ee9ae0-8967865-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/1ad598f6e13353f97b7f7f78da42edc5-8967722-382x254-4.webp"> 
+              <img class="item" src="@/assets/Media/c1f98763e80ea3047bb4175f9f6760a9-8967946-382x254-4.webp"> 
+            </div>
+          </div>
+          <button id="prev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+            </svg>
+          </button>
+          <button id="next">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z" />
+              <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
     <div style="margin-top: 5rem;" class="bg-black flex justify-center items-center flex-col h-[450px]">
@@ -320,7 +358,7 @@
   </div>
 </template>
 
-<script>
+<script> 
 export default {
   name: 'HelloWorld',
   props: {
@@ -620,10 +658,76 @@ export default {
       }
     ]
   }),
+
+  
+
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  background-color: #fd0101;
+}
 
+#wrapper {
+  width: 100%;
+  margin: auto;
+  max-width: 964px;
+  position: relative;
+}
+
+#carousel {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+  height: 0;
+}
+
+#prev, #next {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prev {
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
+  display: none;
+}
+
+#next {
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+#content {
+  display: flex;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.item {
+  width: 180px;
+  height: 180px;
+}
 </style>
