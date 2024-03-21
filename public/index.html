@@ -13,39 +13,6 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-    
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const gap = 2;
-
-      const carousel = document.getElementById("carousel"),
-      content = document.getElementById("content"),
-      next = document.getElementById("next"),
-      prev = document.getElementById("prev");
-      
-      next.addEventListener("click", e => {
-        carousel.scrollBy(this.width + this.gap, 0);
-        if (carousel.scrollWidth !== 0) {
-          prev.style.display = "flex";
-        }
-        if (content.scrollWidth - this.width - this.gap <= carousel.scrollLeft + this.width) {
-          next.style.display = "none";
-        }
-      });
-      prev.addEventListener("click", e => {
-        carousel.scrollBy(-(this.width + this.gap), 0);
-        if (carousel.scrollLeft - this.width - this.gap <= 0) {
-          prev.style.display = "none";
-        }
-        if (!content.scrollWidth - this.width - this.gap <= carousel.scrollLeft + this.width) {
-          next.style.display = "flex";
-        }
-      });
-
-      let width = carousel.offsetWidth;
-      window.addEventListener("resize", e => (this.width = carousel.offsetWidth));
-
-    })
-  </script>
+  <script> </script>
 </html>
