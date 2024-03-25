@@ -1,295 +1,329 @@
 <template>
-  <img class="w-[80%] m-auto" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-  <div class="w-[80%] m-auto shadow-lg shadow-red-500">
-    <div class="flex">
-      <img src="@/assets/img/logo_tp.png">
-      <img class="rounded-lg ml-8 mb-3" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
+  <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
+    <img class="w-[100%]" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+    <div class="flex items-center h-12 p-4" style="background-color: #F1F1F1; margin-bottom: 17px">
+      <p>{{ currentDate }}</p>
+      <p>{{ currentTime }}</p>
+      <button class="mx-3">
+        <span>
+          Курс валюты Центрального банка
+        </span>
+      </button>
+      <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
+      <button class="mx-3">
+        <span>
+          Список банкоматов
+        </span>
+      </button>
+      <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
+      <span class="mx-3">18+</span>
     </div>
-    <div class="nav">
-      <div class="flex justify-around items-center bg-red-800 text-white h-10">
-        <button class="flex items-center">
-          <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
-          <span class="mx-2">ВСЕ КАТЕГОРИИ</span>
-        </button>
-        <span>НОВОСТИ</span>
-        <span>СТАТЬИ</span>
-        <span>МЕДИА</span>
-        <span>БИЗНЕС</span>
-        <span>ИНФОРМАЦИОННАЯ ПРОГРАММА</span>
-        <span>ЧЛЕНЫ СППТ</span>
-        <div>
-          <span>ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
-          <span>ПОИСК</span>
+    <div class="">
+      <div class="flex items-center">
+        <div class="pl-4">
+          <img src="@/assets/img/logo_tp.png" class="w-[380px] h-[75px]">
+        </div>
+        <div class="p-4">
+          <img class="rounded-lg" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
         </div>
       </div>
-    </div>
-    <div class="second-nav flex justify-between items-end h-[60px] p-4">
-      <span class="text-4xl">НОВОСТИ</span>
-      <div class="flex">
-        <span class="mx-3">Дайджест</span>
-        <span class="mx-3">Политика</span>
-        <span class="mx-3">Культура</span>
-        <span class="mx-3">Экономика</span>
-        <span class="mx-3">Образование</span>
-        <span class="mx-3">Туризм</span>
-        <span class="mx-3">Технологии</span>
-        <span class="mx-3">Здоровье</span>
-      </div>
-      <span>Пoказать еще</span>
-    </div>
-    <hr style="width: 98%; margin: auto;">
-    <div class="flex p-4">
-      <div class="w-[35%] mt-3">
-        <img class="rounded-lg" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
-        <div class="text-left mt-3">
-          <span class="text-red-800">Сегодня 19:47</span>
-          <h1 class="font-sans text-lg font-bold my-3">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
-          <p class="my-3 font-sans">В Ашхабаде, Дашогузе, Мары и Туркменабате 2 марта стартовали курсы «Академии для женщин-предпринимателей» (AWE). Программа реализуется Посольством США в Туркменистане совместно с Союзом...</p>
+      <div class="flex justify-between items-center bg-red-800 text-white h-10">
+        <div class="flex items-center w-[70%] p-4">
+          <button class="flex items-center box h-8">
+            <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
+            <span class="mx-2 text-xs font-medium"> ВСЕ КАТЕГОРИИ </span>
+          </button>
+          <button class="mx-2 text-xs font-medium h-8 box">НОВОСТИ</button>
+          <button class="mx-2 text-xs font-medium h-8 box">СТАТЬИ</button>
+          <button class="mx-2 text-xs font-medium h-8 box">МЕДИА</button>
+          <button class="mx-2 text-xs font-medium h-8 box">БИЗНЕС</button>
+          <button class="mx-2 text-xs font-medium h-8 box">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
+          <button class="mx-2 text-xs font-medium h-8 box">ЧЛЕНЫ СППТ</button>
+        </div>
+        <div class="flex items-center p-4">
+          <button class="flex items-center mx-2 box h-8" >
+            <img src="@/assets/plus-5-512.png" class="w-[16px] h-[16px] mx-2">
+            <span class="text-xs font-medium">ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
+          </button>
+          <button class="flex items-center mx-2 box h-8">
+            <img src="@/assets/search-13-512.png" class="w-[16px] h-[16px] mx-2">
+            <span class="text-xs font-medium">ПОИСК</span>
+          </button>
+          <button class="box h-8 mx-2 w-8 m-auto flex items-center justify-center">
+            <img src="@/assets/user-512.png" class="h-[18px]">
+          </button>
         </div>
       </div>
-      <div class="flex flex-col w-[45%] mt-3">
-        <div class="flex" v-for="(novosti , i) in news" :key="i">
-          <img class="m-3 rounded-lg" :src="novosti.img">
-          <div class="flex flex-col text-left m-3">
-            <div class="text-red-800 text-sm">
-              {{ novosti.text }}
-            </div>
-            <div class="font-sans text-sm">
-              {{ novosti.content }}
-            </div>
+      <div class="second-nav flex justify-between items-end h-[60px] p-4 mt-3">
+        <div class="flex items-end">
+          <button class="text-4xl mr-3 font-medium news" style="color: #505050">НОВОСТИ</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Дайджест</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Политика</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Культура</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Экономика</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Образование</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Туризм</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Технологии</button>
+          <button class="mx-3 text-sm news" style="color: #505050">Здоровье</button>
+        </div>
+        <button class="text-sm news" style="color: #505050">Пoказать еще</button>
+      </div>
+      <hr style="width: 98%; margin: auto;">
+      <div class="flex p-4">
+        <div class="w-[35%] mt-3">
+          <img class="rounded-lg" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
+          <div class="text-left mt-3">
+            <span class="text-red-800">Сегодня 19:47</span>
+            <h1 class="font-sans text-lg font-bold my-3">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
+            <p class="my-3 font-sans">В Ашхабаде, Дашогузе, Мары и Туркменабате 2 марта стартовали курсы «Академии для женщин-предпринимателей» (AWE). Программа реализуется Посольством США в Туркменистане совместно с Союзом...</p>
           </div>
         </div>
-      </div>
-      <div class="mt-3">
-        <img class="my-3 rounded-lg" src="@/assets/img/53daeb106dab95f9c75ffc67d6f5c2d8.gif">
-        <img class="my-8" src="@/assets/img/videoframe_3341.png">
-      </div>
-    </div>
-    <div class="p-4">
-      <img style="position: absolute; bottom: -3rem;" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
-    </div>
-    <section class="flex justify-between mt-8 p-4">
-      <div class="СПОРТ w-[30%]">
-        <div class="flex justify-between items-end">
-          <span class="text-4xl">СПОРТ</span>
-          <span class="text-sm">Показать еще</span>
-        </div>
-        <hr class="border-t-2 border-grey my-3">
-        <div class="flex flex-col ">
-          <div class="flex" v-for="(games, i) in sport" :key="i">
-            <img class="m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
+        <div class="flex flex-col w-[45%] mt-3">
+          <div class="flex" v-for="(novosti , i) in news" :key="i">
+            <img class="m-3 rounded-lg" :src="novosti.img">
             <div class="flex flex-col text-left m-3">
-              <div class="text-red-600 text-sm">
-                {{ games.text }}
+              <div class="text-red-800 text-sm">
+                {{ novosti.text }}
               </div>
-              <div class="text-sm">
-                {{ games.content }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Бизнес w-[30%]">
-        <div class="flex justify-between items-end">
-          <span class="text-4xl">БИЗНЕС</span>
-          <span class="text-sm">Показать еще</span>
-        </div>
-        <hr class="border-t-2 border-grey my-3">
-        <div class="flex flex-col ">
-          <div class="flex" v-for="(business, i) in biznes" :key="i">
-            <img :src="business.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
-            <div class="flex flex-col text-left m-3">
-              <div class="text-red-600 text-sm">
-                {{ business.text }}
-              </div>
-              <div class="text-sm">
-                {{ business.content }}
+              <div class="font-sans text-sm">
+                {{ novosti.content }}
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="В Мире w-[30%]">
-        <div class="flex justify-between items-end">
-          <span class="text-4xl">В МИРЕ</span>
-          <span class="text-sm">Показать еще</span>
-        </div>
-        <hr class="border-t-2 border-grey my-3">
-        <div class="flex flex-col ">
-          <div class="flex" v-for="(world, i) in mir" :key="i">
-            <img :src="world.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
-            <div class="flex flex-col text-left m-3">
-              <div class="text-red-600 text-sm">
-                {{ world.data }}
-              </div>
-              <div class="text-sm">
-                {{ world.content }}
-              </div>
-            </div>
-          </div>
+        <div class="mt-3">
+          <img class="my-3 rounded-lg" src="@/assets/img/53daeb106dab95f9c75ffc67d6f5c2d8.gif">
+          <img class="my-8" src="@/assets/img/videoframe_3341.png">
         </div>
       </div>
-    </section>
-    <section style="margin-top: 4rem; margin-bottom: 5rem;" class="p-4">
-      <img class="rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
-    </section>
-    <nav class="flex justify-left items-end p-4">
-      <span class="text-4xl">СТАТЬИ</span>
-      <div class="mx-3">
-        <span class="mx-3">Выдающиеся личности Туркменистана</span>
-        <span class="mx-3">Образование</span>
-        <span class="mx-3">Спорт</span>
-        <span class="mx-3">Hi-Tech</span>
-        <span class="mx-3">Туризм</span>
-        <span class="mx-3">Авто</span>
+      <div class="p-4">
+        <img style="position: absolute; bottom: -3rem;" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
       </div>
-      <div class="w-[29%] text-right">
-        <span class="">Показать еще</span>
-      </div>
-    </nav>
-    <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
-    <section class="mt-5 p-4">
-      <div class="flex justify-between">
-        <div v-for="(status , i) in statyi" :key="i">
-          <img class="rounded-lg" :src="status.image" style="width: 180px; height: 120px;">
-          <div class="w-[180px] mt-3 text-sm">
-            {{ status.content }}
+      <section class="flex justify-between mt-8 p-4">
+        <div class="СПОРТ w-[30%]">
+          <div class="flex justify-between items-end">
+            <button class="text-4xl news">СПОРТ</button>
+            <button class="text-sm news">Показать еще</button>
           </div>
-        </div>
-      </div>
-    </section>
-    <nav class="flex justify-left items-end p-4" style="margin-top: 4rem;">
-      <span class="text-4xl">АФИША</span>
-      <div class="mx-3">
-        <span class="mx-3">Выставки</span>
-        <span class="mx-3">Детям</span>
-        <span class="mx-3">Кинотеатры</span>
-        <span class="mx-3">Клубы</span>
-        <span class="mx-3">Концерты</span>
-        <span class="mx-3">События</span>
-      </div>
-      <div class="w-[50%] text-right">
-        <span class="">Показать еще</span>
-      </div>
-    </nav>
-    <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
-    <section class="mt-5 p-4">
-      <div class="flex justify-between">
-        <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
-          <img :src="anons.image">
-          <div class="w-[180px] mt-5 text-sm px-4">
-            {{ anons.content }}
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="flex justify-between p-5" style="margin-top: 5rem;">
-      <div class="w-[50%]">
-        <nav class="flex justify-left items-end">
-          <span class="text-4xl">ТЕНДЕРЫ</span>
-          <div class="mx-3">
-            <span class="mx-3">Государственные</span>
-            <span class="mx-3">Коммерческие</span>
-          </div>
-          <div class="ml-8">
-            <span class="">Показать еще</span>
-          </div>
-        </nav>
-        <hr class="border-t-2 border-grey my-3">
-        <div style="display: flex; flex-wrap: wrap;">
-          <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 5px; margin: 5px;">
-            <div class="flex items-center">
-              <div class="text-sm">
-                {{ trends.vrema }}
-              </div>
-              <div class="text-sm ml-3">
-                {{ trends.data }}
-              </div>
-              <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
-              <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 15px;" >
-              <span style="font-size: 10px; margin-left: 3px;">2927</span>
-            </div>
-            <div class="text-sm text-blue-800 pt-2">
-              {{ trends.content }}
-            </div>
-            <hr class="border-t-2 border-grey my-3">
-          </div>
-        </div>
-      </div>
-      <div class="w-[45%]">
-        <nav class="flex justify-left items-end">
-          <span class="text-4xl">ОБЪЯВЛЕНИЯ</span>
-          <div class="mx-10">
-            <span>Прочие</span>
-          </div>
-          <div class="ml-12">
-            <span>Показать еще</span>
-          </div>
-        </nav>
-        <hr class="border-t-2 border-grey my-3">
-        <div class="flex flex-col">
-          <div class="flex items-center" v-for="(ads, i) in obyavlenia" :key="i">
-            <img :src="ads.img" style="width: 75px; height: 75px" class="rounded-lg">
-            <div class="flex flex-col m-3">
-              <div class="font-semibold" style="font-size: 15px;">
-                {{ ads.title }}
-              </div>
-              <div class="text-sm">
-                {{ ads.descr }}
-              </div>
-              <div class="flex items-center">
-                <div class="text-xs">
-                  {{ ads.vrema }}
+          <hr class="border-t-2 border-grey my-3">
+          <div class="flex flex-col ">
+            <div class="flex" v-for="(games, i) in sport" :key="i">
+              <img class="m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
+              <div class="flex flex-col text-left m-3">
+                <div class="text-red-600 text-sm">
+                  {{ games.text }}
                 </div>
-                <div class="text-xs ml-3">
-                  {{ ads.data }}
+                <div class="text-sm">
+                  {{ games.content }}
                 </div>
-                <div style="border-right: 1px solid grey; height: 20px; margin-left: 10px;"></div>
-                <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 10px;" >
-                <span style="font-size: 10px; margin-left: 4px;">2927</span>
               </div>
             </div>
-            <hr class="border-t-2 border-black my-3">
           </div>
         </div>
-      </div>
-    </div>
-    <div style="margin-top: 2rem;" class="p-4" >
-      <img src="@/assets/img/9134dc8eaf6cf0eba497f6133a3f8fa3.jpg" class="rounded-lg">
-    </div>
-    <div style="margin-top: 4rem;" class="p-4">
-      <nav class="flex justify-between items-end">
-        <span class="text-4xl">МЕДИА</span>
-        <div class="w-[80%]">
-          <span class="mx-3">Дайджест</span>
-          <span class="mx-3">Наши видео</span>
-          <span class="mx-3">Общество</span>
-          <span class="mx-3">Афиши</span>
-          <span class="mx-3">Бизнес</span>
-          <span class="mx-3">Спорт</span>
+        <div class="Бизнес w-[30%]">
+          <div class="flex justify-between items-end">
+            <button class="text-4xl news">БИЗНЕС</button>
+            <button class="text-sm news">Показать еще</button>
+          </div>
+          <hr class="border-t-2 border-grey my-3">
+          <div class="flex flex-col ">
+            <div class="flex" v-for="(business, i) in biznes" :key="i">
+              <img :src="business.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
+              <div class="flex flex-col text-left m-3">
+                <div class="text-red-600 text-sm">
+                  {{ business.text }}
+                </div>
+                <div class="text-sm">
+                  {{ business.content }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <span>Показать еще</span>
+        <div class="В Мире w-[30%]">
+          <div class="flex justify-between items-end">
+            <button class="text-4xl news">В МИРЕ</button>
+            <button class="text-sm news">Показать еще</button>
+          </div>
+          <hr class="border-t-2 border-grey my-3">
+          <div class="flex flex-col ">
+            <div class="flex" v-for="(world, i) in mir" :key="i">
+              <img :src="world.image" class="m-3 rounded-lg" style="width: 100px; height: 70px;">
+              <div class="flex flex-col text-left m-3">
+                <div class="text-red-600 text-sm">
+                  {{ world.data }}
+                </div>
+                <div class="text-sm">
+                  {{ world.content }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="margin-top: 4rem; margin-bottom: 5rem;" class="p-4">
+        <img class="rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
+      </section>
+      <nav class="flex justify-left items-end p-4">
+        <button class="text-4xl news">СТАТЬИ</button>
+        <div class="mx-3">
+          <button class="mx-3 news">Выдающиеся личности Туркменистана</button>
+          <button class="mx-3 news">Образование</button>
+          <button class="mx-3 news">Спорт</button>
+          <button class="mx-3 news">Hi-Tech</button>
+          <button class="mx-3 news">Туризм</button>
+          <button class="mx-3 news">Авто</button>
+        </div>
+        <div class="w-[29%] text-right">
+          <button class="news">Показать еще</button>
         </div>
       </nav>
-      <hr class="border-t-2 border-grey my-3">
-      <div class="carousel">
-        <div class="carousel-container" :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }">
-          <div v-for="(item, index) in items" :key="index" class="carousel-slide">
-            <!-- Slide content -->
-            <img :src="item.img" :alt="item.altText" class="carousel-image">
-            
+      <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
+      <section class="mt-5 p-4">
+        <div class="flex justify-between">
+          <div v-for="(status , i) in statyi" :key="i">
+            <img class="rounded-lg" :src="status.image" style="width: 180px; height: 120px;">
+            <div class="w-[180px] mt-3 text-sm news">
+              {{ status.content }}
+            </div>
           </div>
         </div>
-        <button @click="prevSlide" :disabled="currentSlide === 0" class="w-[50px] h-[50px]" id="prev">
-          <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-left.svg">
-        </button>
-        <button @click="nextSlide" :disabled="currentSlide === items.length - 1"  class="w-[50px] h-[50px]" id="next">
-          <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-right.svg">
-        </button>
+      </section>
+      <nav class="flex justify-left items-end p-4" style="margin-top: 4rem;">
+        <div>
+          <button class="text-4xl news">АФИША</button>
+        </div>
+        <div class="mx-3 w-[79%]">
+          <button class="mx-3 news">Выставки</button>
+          <button class="mx-3 news">Детям</button>
+          <button class="mx-3 news">Кинотеатры</button>
+          <button class="mx-3 news">Клубы</button>
+          <button class="mx-3 news">Концерты</button>
+          <button class="mx-3 news">События</button>
+        </div>
+        <div>
+          <button class="news">Показать еще</button>
+        </div>
+      </nav>
+      <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
+      <section class="mt-5 p-4">
+        <div class="flex justify-between">
+          <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
+            <img :src="anons.image">
+            <div class="w-[180px] mt-5 text-sm px-4">
+              {{ anons.content }}
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="flex justify-between p-5" style="margin-top: 5rem;">
+        <div class="w-[50%]">
+          <nav class="flex justify-left items-end">
+            <button class="text-4xl news">ТЕНДЕРЫ</button>
+            <div class="mx-3">
+              <button class="mx-3 news">Государственные</button>
+              <button class="mx-3 news">Коммерческие</button>
+            </div>
+            <div class="ml-8">
+              <button class="news">Показать еще</button>
+            </div>
+          </nav>
+          <hr class="border-t-2 border-grey my-3">
+          <div style="display: flex; flex-wrap: wrap;">
+            <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 5px; margin: 5px;">
+              <div class="flex items-center">
+                <div class="text-sm">
+                  {{ trends.vrema }}
+                </div>
+                <div class="text-sm ml-3">
+                  {{ trends.data }}
+                </div>
+                <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
+                <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 15px;" >
+                <span style="font-size: 10px; margin-left: 3px;">2927</span>
+              </div>
+              <div class="text-sm text-blue-800 pt-2 news" style="cursor: pointer">
+                {{ trends.content }}              
+              </div>
+              <hr class="border-t-2 border-grey my-3">
+            </div>
+          </div>
+        </div>
+        <div class="w-[45%]">
+          <nav class="flex justify-left items-end">
+            <button class="text-4xl news">ОБЪЯВЛЕНИЯ</button>
+            <div class="mx-10">
+              <button class="news">Прочие</button>
+            </div>
+            <div class="ml-12">
+              <button class="news">Показать еще</button>
+            </div>
+          </nav>
+          <hr class="border-t-2 border-grey my-3">
+          <div class="flex flex-col">
+            <div class="flex items-center" v-for="(ads, i) in obyavlenia" :key="i">
+              <img :src="ads.img" style="width: 75px; height: 75px" class="rounded-lg">
+              <div class="flex flex-col m-3">
+                <div class="font-semibold news" style="font-size: 15px;">
+                  {{ ads.title }}
+                </div>
+                <div class="text-sm news">
+                  {{ ads.descr }}
+                </div>
+                <div class="flex items-center">
+                  <div class="text-xs">
+                    {{ ads.vrema }}
+                  </div>
+                  <div class="text-xs ml-3">
+                    {{ ads.data }}
+                  </div>
+                  <div style="border-right: 1px solid grey; height: 20px; margin-left: 10px;"></div>
+                  <img src="@/assets/obyavlenie/eye-regular.svg" style="width: 10px; height: 10px; margin-left: 10px;" >
+                  <span style="font-size: 10px; margin-left: 4px;">2927</span>
+                </div>
+              </div>
+              <hr class="border-t-2 border-black my-3">
+            </div>
+          </div>
+        </div>
       </div>
+      <div style="margin-top: 2rem;" class="p-4" >
+        <img src="@/assets/img/9134dc8eaf6cf0eba497f6133a3f8fa3.jpg" class="rounded-lg">
+      </div>
+      <div style="margin-top: 4rem;" class="p-4">
+        <nav class="flex justify-between items-end">
+          <button class="text-4xl news">МЕДИА</button>
+          <div class="w-[80%]">
+            <button class="mx-3 news">Дайджест</button>
+            <button class="mx-3 news">Наши видео</button>
+            <button class="mx-3 news">Общество</button>
+            <button class="mx-3 news">Афиши</button>
+            <button class="mx-3 news">Бизнес</button>
+            <button class="mx-3 news">Спорт</button>
+          </div>
+          <div>
+            <button class="news">Показать еще</button>
+          </div>
+        </nav>
+        <hr class="border-t-2 border-grey my-3">
+        <div class="carousel">
+          <div class="carousel-container" :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }">
+            <div v-for="(item, index) in items" :key="index" class="carousel-slide">
+              <!-- Slide content -->
+              <img :src="item.img" :alt="item.altText" class="carousel-image">
+              
+            </div>
+          </div>
+          <button @click="prevSlide" :disabled="currentSlide === 0" class="w-[50px] h-[50px]" id="prev">
+            <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-left.svg">
+          </button>
+          <button @click="nextSlide" :disabled="currentSlide === items.length - 1"  class="w-[50px] h-[50px]" id="next">
+            <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-right.svg">
+          </button>
+        </div>
+      </div>
+      <fooTer />
     </div>
-    <fooTer />
   </div>
 </template>
 
@@ -303,7 +337,13 @@ export default {
   components: {
     fooTer
   },
+  mounted() {
+    this.getCurrentDateTime();
+  },
   data: () => ({
+    currentDate: '',
+    currentTime: '',
+    hover: false,
     news: [
     { 
       img: require('@/assets/img/45b954d88b1176b04e350fcede256acb-8966978-90x60-2.webp'),
@@ -627,6 +667,11 @@ export default {
       if (this.currentSlide > 0) {
         this.currentSlide--;
       }
+    },
+    getCurrentDateTime() {
+      const currentDate = new Date();
+      this.currentDate = currentDate.toDateString();
+      this.currentTime = currentDate.toLocaleTimeString();
     }
   }
 
@@ -634,6 +679,13 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.news:hover{
+  color: red !important;
+}
+.box:hover {
+  background-color: rgb(255, 255, 255); /* Change to your desired hover color */
+  color: #000000; /* Change to your desired hover text color */
+}
 .carousel {
   position: relative;
   width: 100%;
