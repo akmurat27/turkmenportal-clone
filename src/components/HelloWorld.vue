@@ -1,27 +1,54 @@
 <template>
   <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
-    <img class="w-[100%]" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-    <div class="flex items-center h-12 p-4" style="background-color: #F1F1F1; margin-bottom: 17px">
-      <p>{{ currentDate }}</p>
-      <p>{{ currentTime }}</p>
-      <button class="mx-3">
-        <span>
-          Курс валюты Центрального банка
+    <img class="w-full" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+    <div class="flex justify-between items-center h-12" style="background-color: #F1F1F1; margin-bottom: 17px;">
+      <div class="flex items-center" style="padding: 0 15px;">
+        <span class="date_time">
+          {{ currentDate }}
+          {{ currentTime }}
         </span>
-      </button>
-      <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
-      <button class="mx-3">
-        <span>
-          Список банкоматов
-        </span>
-      </button>
-      <div style="border-right: 1px solid grey; height: 20px; margin-left: 6px;"></div>
-      <span class="mx-3">18+</span>
+        <div class="weather_info w-[135px] h-[12px]">
+          <a href="https://turkmenportal.com/weather" class="flex news">
+            <div class="weather_info_icon flex">
+              <img src="@/assets/A8d-25.webp" class="w-[25px] h-[25px]">
+              <span class="weather_info_temp font-medium">25°</span>
+            </div>
+            <div class="weather_info_caption">
+              <span class="weather_info_citi">Ашхабад</span>
+            </div>
+          </a>
+        </div>
+        <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
+        <button class="mx-3 news">
+          <span style="font-size: 12px;">
+            Курс валюты Центрального банка
+          </span>
+        </button>
+        <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
+        <button class="mx-3 news">
+          <span style="font-size: 12px;">
+            Список банкоматов
+          </span>
+        </button>
+        <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
+        <span class="mx-3 news" style="font-size: 12px; cursor: pointer;">18+</span>
+      </div>
+      <div class="md:w-1/4 sm:w-1/2 pull-right flex items-center justify-end" style="padding: 0 15px;">
+        <div>
+          <span style="font-size: 12px;">Выберите язык:</span>
+        </div>
+        <div class="flex mx-1">
+          <img class="mx-1" src="@/assets/yazyki/tm.png">
+          <img class="mx-1" src="@/assets/yazyki/tr.png">
+          <img class="mx-1" src="@/assets/yazyki/ru.png">
+          <img class="mx-1" src="@/assets/yazyki/en.png">
+        </div>
+      </div>
     </div>
     <div class="">
       <div class="flex items-center">
         <div class="pl-4">
-          <img src="@/assets/img/logo_tp.png" class="w-[380px] h-[75px]">
+          <img src="@/assets/img/logo_tp.png" class="w-[420px] h-[100px]">
         </div>
         <div class="p-4">
           <img class="rounded-lg" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
@@ -69,7 +96,7 @@
         <button class="text-sm news" style="color: #505050">Пoказать еще</button>
       </div>
       <hr style="width: 98%; margin: auto;">
-      <div class="flex p-4">
+      <div class="flex p-4" style="height: 610px;">
         <div class="w-[35%] mt-3">
           <img class="rounded-lg" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
           <div class="text-left mt-3">
@@ -97,7 +124,7 @@
         </div>
       </div>
       <div class="p-4">
-        <img style="position: absolute; bottom: -3rem;" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
+        <img style="" class="rounded-lg" src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
       </div>
       <section class="flex justify-between mt-8 p-4">
         <div class="СПОРТ w-[30%]">
@@ -679,6 +706,53 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.date_time {
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 150px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: "PT Root UI", "Commissioner", Helvetica, sans-serif, Arial, Verdana;
+}
+.weather_info_temp {
+    font-size: 18px;
+}
+.weather_info_caption {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px 10px auto 10px;
+    font-size: 12px;
+}
+.weather_info_icon img {
+    width: 25px;
+    margin-right: 5px;
+}
+.weather_info_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+.weather_info {
+    display: inline-block;
+    width: 135px;
+    height: 12px;
+}
+.weather_info a {
+  position: relative;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  background: #dee8ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #554d4d;
+}
 .news:hover{
   color: red !important;
 }
@@ -724,5 +798,4 @@ export default {
   top: 40%;
   right: 0;
 }
-
 </style>
