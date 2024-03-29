@@ -192,7 +192,7 @@
         <img class="rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
       </section>
       <nav class="lg:flex lg:items-end lg:p-4 md:p-4 md:flex md:text-sm">
-        <button class="lg:text-4xl md:text-2xl md:items-start md:justify-center md:flex news">СТАТЬИ</button>
+        <button class="lg:text-4xl md:text-4xl md:items-start md:mt-2 md:justify-center md:flex news">СТАТЬИ</button>
         <div class="">
           <button class="mx-3 md:mt-2 news">Выдающиеся личности Туркменистана</button>
           <button class="mx-3 md:mt-2 news">Образование</button>
@@ -201,24 +201,22 @@
           <button class="mx-3 md:mt-2 news">Туризм</button>
           <button class="mx-3 md:mt-2 news">Авто</button>
         </div>
-        <button class="news lg:w-[31%] lg:text-right md:w-[25%] md:items-end md:justify-center md:flex">Показать еще</button>
+        <button class="news lg:w-[14%] lg:text-right md:w-[15%] md:items-end md:mt-2 md:justify-end md:flex">Показать еще</button>
       </nav>
       <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
       <section class="mt-5 p-4">
-        <div class="flex justify-between">
+        <div class="lg:flex lg:justify-between md:flex md:justify-between">
           <div v-for="(status , i) in statyi" :key="i">
-            <img class="rounded-lg" :src="status.image" style="width: 180px; height: 120px;">
-            <div class="w-[180px] mt-3 text-sm news">
+            <img class="rounded-lg lg:w-[180px] lg:h-[120px] md:w-[110px] md:h-[75px]" :src="status.image">
+            <div class="lg:w-[180px] lg:mt-3 lg:text-sm news md:w-[90px] md:mt-3 md:text-sm md:overflow-hidden">
               {{ status.content }}
             </div>
           </div>
         </div>
       </section>
-      <nav class="flex justify-left items-end p-4" style="margin-top: 4rem;">
-        <div>
-          <button class="text-4xl news">АФИША</button>
-        </div>
-        <div class="mx-3 w-[79%]">
+      <nav class="lg:flex lg:items-end lg:p-4 md:p-4 md:flex md:justify-between md:items-end md:text-sm" style="margin-top: 4rem;">
+        <button class="text-4xl md:items-start md:mt-2 md:justify-center md:flex news">АФИША</button>
+        <div class="lg:mx-3 lg:w-[79%] md:mx-3">
           <button class="mx-3 news">Выставки</button>
           <button class="mx-3 news">Детям</button>
           <button class="mx-3 news">Кинотеатры</button>
@@ -226,21 +224,17 @@
           <button class="mx-3 news">Концерты</button>
           <button class="mx-3 news">События</button>
         </div>
-        <div>
-          <button class="news">Показать еще</button>
-        </div>
+        <button class="news lg:w-[15%] lg:text-right md:w-[15%] md:items-end md:mt-2 md:justify-end md:flex">Показать еще</button>
       </nav>
       <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
-      <section class="mt-5 p-4">
-        <div class="flex justify-between">
-          <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg">
-            <img :src="anons.image">
-            <div class="w-[180px] mt-5 text-sm px-4">
-              {{ anons.content }}
-            </div>
+      <div class="lg:mt-5 lg:p-4 lg:flex lg:justify-between lg:overflow-hidden md:flex md:w-[100%] md:overflow:hidden">
+        <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg mx-5">
+          <img :src="anons.image" class="">
+          <div class="lg:w-[180px] lg:mt-5 lg:text-sm lg:px-4 md:w-[90px] md:mt-5 md:text-sm md:px-4">
+            {{ anons.content }}
           </div>
         </div>
-      </section>
+      </div>
       <div class="lg:flex lg:justify-between lg:p-5 md:block" style="margin-top: 5rem;">
         <div class="lg:w-[50%] md:w-[100%]">
           <nav class="lg:flex lg:justify-left lg:items-end md:block">
@@ -332,11 +326,12 @@
         </nav>
         <hr class="border-t-2 border-grey my-3">
         <div class="carousel">
-          <div class="carousel-container" :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }">
-            <div v-for="(item, index) in items" :key="index" class="carousel-slide">
+          <div class="carousel-container" :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }" >
+            <div v-for="(item, index) in items" :key="index" class="carousel-slide mx-0.5">
               <!-- Slide content -->
-              <img :src="item.img" :alt="item.altText" class="carousel-image">
-              
+              <div class="carousel-image-wrapper">
+                <img :src="item.img" :alt="item.altText" class="carousel-image">
+              </div>
             </div>
           </div>
           <button @click="prevSlide" :disabled="currentSlide === 0" class="w-[50px] h-[50px]" id="prev">
@@ -548,6 +543,22 @@ export default {
         image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
         content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
       },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
+      {
+        image: require('@/assets/Statyi/d13abd820aa2c0db95fb008e7e918dbc-8926073-180x134-2.webp'),
+        content: 'Расписание приёма пищи во время поста Рамадан 2024 года (Туркменистан)'
+      },
     ],
     tendery: [
       { 
@@ -697,13 +708,19 @@ export default {
       const currentDate = new Date();
       this.currentDate = currentDate.toDateString();
       this.currentTime = currentDate.toLocaleTimeString();
-    }
+    },
   }
 
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.carousel-image-wrapper:hover {
+  cursor: pointer; /* Indicate hover interaction possibility */
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
 .date_time {
     margin-right: 10px;
     display: inline-block;
@@ -766,7 +783,7 @@ export default {
 
 .carousel-container {
   display: flex;
-  transition: transform 3s ease;
+  transition: transform 3s ease-in-out;
 }
 
 .carousel-slide {
@@ -775,6 +792,8 @@ export default {
 
 .carousel-image {
   width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 #prev,
 #next {
