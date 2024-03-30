@@ -191,9 +191,9 @@
       <section style="margin-top: 4rem; margin-bottom: 5rem;" class="p-4">
         <img class="rounded-lg" src="@/assets/img/3f16a7289de119ffdc9a4d395a1b8227.gif">
       </section>
-      <nav class="lg:flex lg:items-end lg:p-4 md:p-4 md:flex md:text-sm">
+      <nav class="lg:flex lg:items-end lg:justify-between lg:p-4 md:p-4 md:flex md:text-sm">
         <button class="lg:text-4xl md:text-4xl md:items-start md:mt-2 md:justify-center md:flex news">СТАТЬИ</button>
-        <div class="">
+        <div class="lg:w-[80%]">
           <button class="mx-3 md:mt-2 news">Выдающиеся личности Туркменистана</button>
           <button class="mx-3 md:mt-2 news">Образование</button>
           <button class="mx-3 md:mt-2 news">Спорт</button>
@@ -227,29 +227,31 @@
         <button class="news lg:w-[15%] lg:text-right md:w-[15%] md:items-end md:mt-2 md:justify-end md:flex">Показать еще</button>
       </nav>
       <hr class="border-t-2 border-grey my-3" style="width: 98%; margin: auto;">
-      <div class="lg:mt-5 lg:p-4 lg:flex lg:justify-between lg:overflow-hidden md:flex md:w-[100%] md:overflow:hidden">
-        <div v-for="(anons , i) in afisha" :key="i" class="rounded-lg shadow-lg mx-5">
-          <img :src="anons.image" class="">
-          <div class="lg:w-[180px] lg:mt-5 lg:text-sm lg:px-4 md:w-[90px] md:mt-5 md:text-sm md:px-4">
-            {{ anons.content }}
+      <div @mousedown="startDrag" @mouseup="endDrag" @mousemove="drag" ref="carouselVue" class="carouselVue lg:mt-5 lg:p-4 lg:flex lg:justify-between lg:overflow-hidden md:flex md:justify-between md:overflow-hidden md:p-4">
+        <div class="carouselVue-container" ref="container">
+          <div v-for="(anons , i) in afisha" :key="i" style="cursor: pointer" class="carouselVue-slide lg:rounded-lg lg:shadow-xl lg:mx-3 md:rounded-lg md:shadow-xl md:mx-3">
+            <img :src="anons.image" class="md:w-full rounded-t-lg">
+            <div class="lg:w-[250px] lg:mt-5 lg:text-sm lg:px-4 md:w-[205px] md:text-sm md:p-3 md:text-center md:text-custom-gray">
+              {{ anons.content }}
+            </div>
           </div>
         </div>
       </div>
-      <div class="lg:flex lg:justify-between lg:p-5 md:block" style="margin-top: 5rem;">
-        <div class="lg:w-[50%] md:w-[100%]">
-          <nav class="lg:flex lg:justify-left lg:items-end md:block">
-            <button class="lg:text-4xl md:text-2xl news">ТЕНДЕРЫ</button>
-            <div class="mx-3">
-              <button class="mx-3 news">Государственные</button>
+      <div class="lg:flex lg:justify-between lg:p-4 md:block" style="margin-top: 5rem;">
+        <div class="lg:w-[50%] md:w-[100%] md:p-4">
+          <nav class="lg:flex lg:justify-left lg:items-end md:flex md:items-end md:justify-between">
+            <button class="lg:text-4xl md:text-4xl news">ТЕНДЕРЫ</button>
+            <div class="lg:mx-3 md:w-[50%]">
+              <button class=" news">Государственные</button>
               <button class="mx-3 news">Коммерческие</button>
             </div>
-            <div class="ml-8">
+            <div class="">
               <button class="news">Показать еще</button>
             </div>
           </nav>
           <hr class="border-t-2 border-grey my-3">
-          <div style="display: flex; flex-wrap: wrap;">
-            <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px; padding: 5px; margin: 5px;">
+          <div class="lg:flex lg:flex-wrap">
+            <div v-for="(trends, i) in tendery" :key="i" style="flex: 1 0 200px;" class="lg:my-5 md:px-[10px] md:h-[100px] md:mt-[15px] lg:m-[5px] lg:p-[5px]">
               <div class="flex items-center">
                 <div class="text-sm">
                   {{ trends.vrema }}
@@ -264,24 +266,24 @@
               <div class="text-sm text-blue-800 pt-2 news" style="cursor: pointer">
                 {{ trends.content }}              
               </div>
-              <hr class="border-t-2 border-grey my-3">
+              <hr class="border-t-2 border-grey my-5">
             </div>
           </div>
         </div>
-        <div class="lg:w-[45%] md:w-[100%]">
-          <nav class="flex justify-left items-end">
+        <div class="lg:w-[45%] md:w-[100%] md:p-4">
+          <nav class="lg:flex lg:justify-between lg:items-end md:flex md:justify-between md:items-end">
             <button class="text-4xl news">ОБЪЯВЛЕНИЯ</button>
-            <div class="mx-10">
-              <button class="news">Прочие</button>
+            <div class="md:w-[45%] lg:w-[35%]">
+              <button class="news mx-5">Прочие</button>
             </div>
-            <div class="ml-12">
+            <div class="">
               <button class="news">Показать еще</button>
             </div>
           </nav>
           <hr class="border-t-2 border-grey my-3">
           <div class="flex flex-col">
-            <div class="flex items-center" v-for="(ads, i) in obyavlenia" :key="i">
-              <img :src="ads.img" style="width: 75px; height: 75px" class="rounded-lg">
+            <div class="flex items-center md:my-4" v-for="(ads, i) in obyavlenia" :key="i">
+              <img :src="ads.img" class="rounded-lg lg:w-[75px] lg:h-[75px] md:w-[75px] md:h-[90px] md:w-full">
               <div class="flex flex-col m-3">
                 <div class="font-semibold news" style="font-size: 15px;">
                   {{ ads.title }}
@@ -312,7 +314,7 @@
       <div style="margin-top: 4rem;" class="p-4">
         <nav class="flex justify-between items-end">
           <button class="text-4xl news">МЕДИА</button>
-          <div class="w-[80%]">
+          <div class="lg:w-[80%] md:w-[70%] md:text-sm">
             <button class="mx-3 news">Дайджест</button>
             <button class="mx-3 news">Наши видео</button>
             <button class="mx-3 news">Общество</button>
@@ -321,7 +323,7 @@
             <button class="mx-3 news">Спорт</button>
           </div>
           <div>
-            <button class="news">Показать еще</button>
+            <button class="news md:text-sm">Показать еще</button>
           </div>
         </nav>
         <hr class="border-t-2 border-grey my-3">
@@ -361,6 +363,11 @@ export default {
     this.getCurrentDateTime();
   },
   data: () => ({
+    isDragging: false,
+    startPosition: 0,
+    currentTranslate: 0,
+    previousPosition: 0,
+    threshold: 50,
     currentDate: '',
     currentTime: '',
     hover: false,
@@ -709,12 +716,40 @@ export default {
       this.currentDate = currentDate.toDateString();
       this.currentTime = currentDate.toLocaleTimeString();
     },
+    startDrag(event) {
+      this.isDragging = true;
+      this.startPosition = event.clientX || event.touches[0].clientX;
+      this.previousPosition = this.currentTranslate;
+    },
+    endDrag() {
+      this.isDragging = false;
+    },
+    drag(event) {
+      if (this.isDragging) {
+        const currentPosition = event.clientX || event.touches[0].clientX;
+        const diff = currentPosition - this.startPosition;
+        this.currentTranslate = this.previousPosition + diff;
+        this.$refs.container.style.transform = `translateX(${this.currentTranslate}px)`;
+      }
+    }
   }
 
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.carouselVue {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carouselVue-container {
+    display: flex;
+  }
+  
+  .carouselVue-slide {
+    flex-shrink: 0;
+  }
 .carousel-image-wrapper:hover {
   cursor: pointer; /* Indicate hover interaction possibility */
   transform: scale(1.1);
