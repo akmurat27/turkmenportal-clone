@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="lg:flex lg:justify-between lg:items-center lg:bg-red-800 lg:text-white lg:h-10 md:flex md:justify-between md:items-center md:bg-red-800 md:text-white md:h-10 md:p-4">
-        <div class="lg:flex lg:items-center md:flex md:items-center">
+        <div class="xl:flex xl:items-center md:flex md:items-center">
           <button class="flex items-center box h-8">
             <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
             <span class="mx-2 text-xs font-medium lg:block md:hidden"> ВСЕ КАТЕГОРИИ </span>
@@ -64,8 +64,8 @@
           <button class="mx-2 text-xs font-medium h-8 box">СТАТЬИ</button>
           <button class="mx-2 text-xs font-medium h-8 box">МЕДИА</button>
           <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">БИЗНЕС</button>
-          <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
-          <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">ЧЛЕНЫ СППТ</button>
+          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
+          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ЧЛЕНЫ СППТ</button>
         </div>
         <div class="lg:flex lg:items-center md:flex md:items-center">
           <button class="flex items-center mx-2 box h-8" >
@@ -76,12 +76,12 @@
             <img src="@/assets/search-13-512.png" class="w-[16px] h-[16px] mx-2">
             <span class="text-xs font-medium lg:block md:hidden">ПОИСК</span>
           </button>
-          <button class="box h-8 ml-2 w-8 m-auto flex items-center justify-center">
+          <button class="box xl:h-8 xl:ml-2 xl:w-8 xl:m-auto xl:flex xl:items-center xl:justify-center lg:hidden">
             <img src="@/assets/user-512.png" class="h-[18px]">
           </button>
         </div>
       </div>
-      <div class="second-nav flex justify-between items-end h-[50px] p-4 lg:mt-3">
+      <div class="second-nav xl:flex xl:justify-between xl:items-end xl:h-[50px] xl:p-4 xl:mt-3 lg:hidden">
         <div class="flex items-end">
           <button class="text-4xl mr-3 md:hidden lg:block font-medium news" style="color: #505050">НОВОСТИ</button>
           <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Дайджест</button>
@@ -96,18 +96,22 @@
         <button class="text-sm news" style="color: #505050">Пoказать еще</button>
       </div>
       <hr style="width: 98%; margin: auto;">
-      <div class="lg:flex lg:p-4 lg:justify-between md:p-4">
+      <div class="xl:flex xl:p-4 xl:justify-between md:p-4 lg:flex lg:p-4 lg:justify-between">
         <div class="lg:w-[100%]">
           <div class="lg:flex lg:h-[640px]">
             <div class="lg:w-[42%] lg:pt-4">
-              <img class="rounded-md lg:w-full md:w-full" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
-              <div class="text-left mt-3">
+              <router-link to="/about">  
+                <img class="rounded-md lg:w-full md:w-full" style="cursor: pointer" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
+              </router-link>
+                <div class="text-left mt-3">
                 <span class="text-red-800">Сегодня 19:47</span>
-                <h1 class="font-sans text-lg font-bold my-3">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
+              <router-link to="/about">
+                <h1 class="font-sans text-lg font-bold my-3" style="cursor: pointer">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
+              </router-link>
                 <p class="my-3 font-sans">В Ашхабаде, Дашогузе, Мары и Туркменабате 2 марта стартовали курсы «Академии для женщин-предпринимателей» (AWE). Программа реализуется Посольством США в Туркменистане совместно с Союзом...</p>
               </div>
             </div>
-            <div class="lg:flex lg:flex-col lg:w-[59%]">
+            <div class="xl:flex xl:flex-col xl:w-[59%]">
               <div class="lg:flex lg:p-4 lg:ml-5" v-for="(novosti , i) in news" :key="i">
                 <img class="lg:rounded-md" :src="novosti.img">
                 <div class="flex flex-col text-left mx-3 md:justify-center">
@@ -155,7 +159,7 @@
             </div>
           </div>
         </div>
-        <div class="Бизнес lg:w-[30%] md:mt-5">
+        <div class="Бизнес lg:w-[30%]">
           <div class="flex justify-between items-end">
             <button class="text-4xl news">БИЗНЕС</button>
             <button class="text-sm news">Показать еще</button>
@@ -175,7 +179,7 @@
             </div>
           </div>
         </div>
-        <div class="В Мире lg:w-[30%] md:mt-5">
+        <div class="В Мире lg:w-[30%]">
           <div class="flex justify-between items-end">
             <button class="text-4xl news">В МИРЕ</button>
             <button class="text-sm news">Показать еще</button>
@@ -246,7 +250,7 @@
         </div>
       </div>
       <div class="lg:flex lg:justify-between lg:p-4 md:block" style="margin-top: 5rem;">
-        <div class="lg:w-[50%] md:w-[100%] md:p-4">
+        <div class="lg:w-[50%] md:w-[100%]">
           <nav class="lg:flex lg:justify-left lg:items-end md:flex md:items-end md:justify-between">
             <button class="lg:text-4xl md:text-4xl news">ТЕНДЕРЫ</button>
             <div class="lg:mx-3 md:w-[50%]">
@@ -278,7 +282,7 @@
             </div>
           </div>
         </div>
-        <div class="lg:w-[45%] md:w-[100%] md:p-4">
+        <div class="lg:w-[45%] md:w-[100%]">
           <nav class="lg:flex lg:justify-between lg:items-end md:flex md:justify-between md:items-end">
             <button class="text-4xl news">ОБЪЯВЛЕНИЯ</button>
             <div class="md:w-[45%] lg:w-[35%]">
