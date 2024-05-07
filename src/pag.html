@@ -1,0 +1,71 @@
+<template>
+    <div class="carousel">
+      <div class="slides" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+        <div v-for="(item, index) in items" :key="index" class="slide">
+          {{ item }}
+        </div>
+      </div>
+      <div class="pagination">
+        <button v-for="(item, index) in pagination" :key="index" @click="goToSlide(index)" :class="{ 'active': index === currentSlide }">{{ index + 1 }}</button>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    props: {
+      items: {
+        type: Array,
+        required: true
+      }
+    },
+    data() {
+      return {
+        currentSlide: 0
+      };
+    },
+    computed: {
+      pagination() {
+        return Array.from({ length: Math.ceil(this.items.length / 3) }, (_, index) => index);
+      }
+    },
+    methods: {
+      goToSlide(index) {
+        this.currentSlide = index;
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .carousel {
+    width: 300px;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    width: 100%;
+  }
+  
+  .pagination {
+    margin-top: 10px;
+  }
+  
+  .pagination button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-right: 5px;
+    padding: 5px;
+  }
+  
+  .pagination button.active {
+    background-color: #ccc;
+  }
+  </style>
+  

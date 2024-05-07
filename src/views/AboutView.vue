@@ -1,5 +1,4 @@
 <template>
-    <h1 @click="goToHome" style="cursor: pointer;">This is an about page</h1>
   <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
     <img class="w-full" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
     <div class="lg:flex lg:justify-between lg:items-center lg:h-12 " style="background-color: #F1F1F1;">
@@ -48,8 +47,8 @@
     </div>
     <div class="">
       <div class="lg:flex lg:items-center lg:p-4">
-        <div class="">
-          <img src="@/assets/img/logo_tp.png" class="w-full h-full">
+        <div class="" @click="goToHome" style="cursor: pointer;"> 
+            <img src="@/assets/img/logo_tp.png" class="w-full h-full">
         </div>
         <div class="px-4">
           <img class="rounded-lg w-full" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
@@ -99,33 +98,7 @@
     </div>
     <hr style="width: 98%; margin: auto;">
     <div class="flex">
-      <!-- <div class="sidebar w-[25%] p-4 border">
-        <span class="font-medium text-lg">Последние новости</span>
-        
-        <div id="tabs" class="pt-2 flex justify-start w-[190px] h-[50px]">
-          <button class="border border-solid border-black mr-2">
-            <span class="text-md mx-3">В тренде</span>
-          </button>
-          <button class="border border-solid border-black mr-2">
-            <span class="text-md mx-3">Лента</span>
-          </button>
-        </div>
-        
-        <hr style="width: 100%;">
-        
-        <div v-for="trends in trendy" :key=trends>
-          <div class="flex my-2">
-            <span class="text-xs mr-2">{{ trends.data }}</span>
-            <div class="flex items-center">
-              <img :src="trends.img" style="width: 10px; height: 10px;" >
-              <span class="text-xs mx-1">{{ trends.views }}</span>
-            </div>
-          </div>
-          <span class="lenta">{{ trends.text }}</span>
-          <hr style="width: 100%; margin-top: 10px; margin-bottom: 15px">
-        </div>
-      </div> -->
-      <div class="border w-[30%] px-4">
+      <div class="border w-[220px] px-4">
         <span class="font-medium text-lg">Последние новости</span>
         <!-- Tabs -->
         <ul id="tabs" class="inline-flex w-full border-b">
@@ -150,6 +123,24 @@
             Second tab
           </div>
         </div>
+        <h1>Архив новостей</h1>
+        <div class="calendar mb-[20px]">
+          <div class="header">
+            <button @click="previousMonth" style="color: blue;">&lt;</button>
+            <h2>{{ currentMonth }}</h2>
+            <button @click="nextMonth" style="color: blue;">&gt;</button>
+          </div>
+          <div class="days-of-week">
+            <div v-for="dayOfWeek in daysOfWeek" :key="dayOfWeek" class="day-of-week">{{ dayOfWeek }}</div>
+          </div>
+          <div class="days">
+            <div v-for="week in weeks" :key="week">
+              <div v-for="day in week" :key="day.value" :class="{ 'day': true, 'current-day': isCurrentDay(day.value) }">{{ day.value }}</div>
+            </div>
+          </div>
+        </div>
+        <hr style="width: 100%; margin: auto;">
+        <img src="@/assets/gif/1db207ea77dd7c4924f3fd368f84cd56.gif" class="mt-[20px]">
       </div>
 
       <div class="mainPage w-[75%] p-4">
@@ -171,6 +162,30 @@
         <div class="article_text" v-for="(item, i) in article_text" :key="i" >
           <p>{{ item.text }}</p>
         </div>
+        <hr style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 20px;">
+        <div class="flex h-[30px]">
+          <h1>Поделиться в социальной сети:</h1>
+          <div class="flex w-[10%] mx-2">
+            <img class="mx-0.5" src="@/assets/set/VK_Compact_Logo_(2021-present).svg.png">
+            <img class="mx-0.5" src="@/assets/set/x-social-media-logo-icon.webp">
+            <img class="mx-0.5" src="@/assets/set/Odnoklassniki.svg.png">
+            <img class="mx-0.5" src="@/assets/set/images.png">
+          </div>
+        </div>
+        <h1 class="mb-[10px]">Если вы заметили ошибку в тексте, пожалуйста, выделите её и нажмите Ctrl+Enter</h1>
+        <img src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
+        <h1 class="mt-[40px] text-red-800 font-medium text-[19px]">КОММЕНТАРИИ</h1>
+        <hr style="width: 100%; margin: auto; margin-bottom: 10px; margin-top: 5px;">
+        <input class="w-full  fake_comment_input" type="text">
+        <h1 style="position: relative; bottom: 5rem;" class="ml-[20px]">Для того, чтобы оставить комментарий <a href="#" style="color: #006FD1;"> авторизуйтесь </a> или <a href="#" style="color: #006FD1;"> зарегистрируйтесь </a> </h1>
+        <h1 class="mt-[40px] text-red-800 font-medium text-[19px]">ЧИТАЙТЕ ТАКЖЕ</h1>
+        <hr style="width: 100%; margin: auto; margin-bottom: 10px; margin-top: 5px;">
+        <div class="flex flex-wrap">
+          <div v-for="(item, i) in read_more" :key="i" style="flex: 1 0 300px;">
+            <img :src="item.image" class="rounded-md h-[200px]">
+            <p class="mt-2 text-[14px] w-[300px]">{{ item.text }}</p>
+          </div>
+        </div>
       </div>
       <div class="ads w-[25%] p-4">
         <img class="rounded-lg" src="@/assets/img/53daeb106dab95f9c75ffc67d6f5c2d8.gif">
@@ -181,13 +196,78 @@
         <span class="entry-title my-2">Киноафиша киноконцертного зала «Туркменистан»</span>
         <hr style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 20px;">
         <span class="headerColor2">СТАТЬИ</span>
+        
+        <div class="carousel">
+          <div class="carousel-container" :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }" >
+            <div v-for="(item, index) in items" :key="index" class="carousel-slide">
+              <!-- Slide content -->
+              <div class="carousel-image-wrapper">
+                <img :src="item.img" :alt="item.altText" class="carousel-image">
+                {{item.text}}
+              </div>
+            </div>
+          </div>
+          <div class="pagination">
+            <button v-for="(item, index) in pagination" :key="index" @click="goToSlide(index)" :class="{ 'active': index === currentSlide }">{{ index + 1 }}</button>
+          </div>
+          <button @click="prevSlide" :disabled="currentSlide === 0" class="w-[50px] h-[50px]" id="prev">
+            <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-left.svg">
+          </button>
+          <button @click="nextSlide" :disabled="currentSlide === items.length - 1"  class="w-[50px] h-[50px]" id="next">
+            <img class="w-[50px] h-[50px]" src="@/assets/Media/chevron-right.svg">
+          </button>
+        </div>
+        <hr style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 20px;">
+        <div class="flex  justify-center">
+          <img src="@/assets/gif/1db207ea77dd7c4924f3fd368f84cd56.gif" class="mt-[20px]">
+        </div>
       </div>
     </div>
+    <fooTer />
   </div>
 </template>
 <script>
+import fooTer from '@/components/fooTer.vue'
 export default {
+  components: {
+    fooTer
+  },
+  props: {
+    item: {
+      type: Array,
+      required: true
+    }
+  },
   data: () => ({
+    currentSlide: 0,
+    slideWidth: 385,
+    date: new Date(),
+    read_more: [
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      },
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      },
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      },
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      },
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      },
+      {
+        image: require("@/assets/readMore/39fdfc111a1666cf30d957dc7e16a4be-8974722-300x210-2.jpg"),
+        text: "Посол Туркменистана почтил память героев Великой Отечественной войны в Минске"
+      }
+    ],
     article_text: [
       {  
         text: "Институт международных отношений Министерства иностранных дел Туркменистана объявил даты проведения полуфинала и финала III сезона проекта «Юные вестники мира» среди старшеклассников страны."
@@ -261,18 +341,199 @@ export default {
         views: "1234",
         text: "Глава Туркменистана поручил провести на высоком уровне форум TEIF-2024 в Париже"
       },  
-    ]
+    ],
+    items: [
+      {
+        img: require('@/assets/carouselStatya/1c3be744fcf54c944a93d1049b574ffa-8974170-385x435-2.webp'),
+        text: 'Что такое Belet Film?'
+      },
+      {
+        img: require('@/assets/carouselStatya/8e5f8dfe8150bec7b70f92b9c8e7d62e-8974711-384x435-2.webp'),
+        text: 'Главные новости Туркменистана и мира на 13 марта'
+      },
+      {
+        img: require('@/assets/carouselStatya/ac745178635a71080967a6527b07e218-8974419-385x435-2.webp'),
+        text: 'Главные новости Туркменистана и мира на 12 марта'
+      },
+
+    ],
   }), 
   methods: {
     goToHome() {
       this.$router.push('/homePage')
     },
+    previousMonth() {
+      this.date = new Date(this.date.getFullYear(), this.date.getMonth() - 1, 1);
+    },
+    nextMonth() {
+      this.date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 1);
+    },
+    isCurrentDay(day) {
+      const today = new Date();
+      return this.date.getMonth() === today.getMonth() && this.date.getFullYear() === today.getFullYear() && day === today.getDate();
+    },
+    nextSlide() {
+      if (this.currentSlide < this.items.length - 1) {
+        this.currentSlide++;
+      }
+    },
+    prevSlide() {
+      if (this.currentSlide > 0) {
+        this.currentSlide--;
+      }
+    },
+    goToSlide(index) {
+      this.currentSlide = index;
+    }
   },
-
+  computed: {
+    currentMonth() {
+      return this.date.toLocaleString('default', { month: 'long', year: 'numeric' });
+    },
+    daysOfWeek() {
+      return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    },
+    weeks() {
+      const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
+      const daysInMonth = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
+      const weeks = [];
+      let week = [];
+      for (let i = 0; i < firstDayOfMonth; i++) {
+        week.push({ value: '' });
+      }
+      for (let i = 1; i <= daysInMonth; i++) {
+        const currentDay = new Date(this.date.getFullYear(), this.date.getMonth(), i).getDay();
+        week.push({ value: i });
+        if (currentDay === 6 || i === daysInMonth) {
+          weeks.push(week);
+          week = [];
+        }
+      }
+      return weeks;
+    },
+    pagination() {
+      return Array.from({ length: Math.ceil(this.items.length / 3) }, (_, index) => index);
+    },
+  },
 }
 </script>
 
-<style>
+<style scoped>
+.pagination {
+    margin-top: 10px;
+  }
+  
+  .pagination button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-right: 5px;
+    padding: 5px;
+  }
+  
+  .pagination button.active {
+    background-color: #ccc;
+  }
+#prev,
+#next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(71, 71, 71);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prev {
+  top: 40%;
+}
+
+#next {
+  top: 40%;
+  right: 0;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 3s ease-in-out;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+}
+.carousel-image-wrapper:hover {
+  cursor: pointer; /* Indicate hover interaction possibility */
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+.calendar {
+  font-family: Arial, sans-serif;
+  width: 190px;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  font-size: 12px;
+}
+
+.day-of-week {
+  text-align: center;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  font-size: 12px;
+}
+
+.day {
+  text-align: center;
+  color: blue;
+}
+
+.current-day {
+  color: #ff3d02;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+
+.fake_comment_input {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #d9d9d9;
+    color: #595959;
+    display: block;
+    font-size: 13px;
+    line-height: 22px;
+    padding: 11px 19px 54px;
+}
 .lenta {
   color: #3d3d3d;
   font-size: 14px;
