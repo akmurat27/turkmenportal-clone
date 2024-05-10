@@ -1,7 +1,7 @@
 <template>
   <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
-    <img class="w-full" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-    <div class="lg:flex lg:justify-between lg:items-center lg:h-12 " style="background-color: #F1F1F1;">
+    <img class="w-full md:hidden" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+    <div class="flex justify-between items-center h-12 md:flex md:justify-between md:items-center md:hidden " style="background-color: #F1F1F1;">
       <div class="lg:flex lg:items-center md:flex md:items-center md:text-xs md:h-12" style="padding: 0 15px;">
         <span class="date_time">
           {{ currentDate }}
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="">
-      <div class="lg:flex lg:items-center lg:p-4">
+      <div class="flex items-center p-4">
         <div class="" @click="goToHome" style="cursor: pointer;"> 
             <img src="@/assets/img/logo_tp.png" class="w-full h-full">
         </div>
@@ -60,45 +60,45 @@
             <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
             <span class="mx-2 text-xs font-medium lg:block md:hidden"> ВСЕ КАТЕГОРИИ </span>
           </button>
-          <button class="mx-2 text-xs font-medium h-8 box">НОВОСТИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box">СТАТЬИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box">МЕДИА</button>
+          <button class="mx-2 text-xs font-medium h-8 box md:hidden">НОВОСТИ</button>
+          <button class="mx-2 text-xs font-medium h-8 box md:hidden">СТАТЬИ</button>
+          <button class="mx-2 text-xs font-medium h-8 box md:hidden">МЕДИА</button>
           <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">БИЗНЕС</button>
           <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
           <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ЧЛЕНЫ СППТ</button>
         </div>
         <div class="lg:flex lg:items-center md:flex md:items-center">
-          <button class="flex items-center mx-2 box h-8" >
-            <img src="@/assets/plus-5-512.png" class="w-[16px] h-[16px] mx-2">
-            <span class="text-xs font-medium lg:block md:hidden">ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
+          <button class="flex items-center box h-8 px-2.5" >
+            <img src="@/assets/plus-5-512.png" class="w-[16px] h-[16px]">
+            <span class="text-xs font-medium lg:block md:hidden px-1">ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
           </button>
-          <button class="flex items-center mx-2 box h-8">
-            <img src="@/assets/search-13-512.png" class="w-[16px] h-[16px] mx-2">
-            <span class="text-xs font-medium lg:block md:hidden">ПОИСК</span>
+          <button class="flex items-center box h-8 px-2.5">
+            <img src="@/assets/search-13-512.png" class="w-[16px] h-[16px]">
+            <span class="text-xs font-medium lg:block md:hidden px-1">ПОИСК</span>
           </button>
-          <button class="box xl:h-8 xl:ml-2 xl:w-8 xl:m-auto xl:flex xl:items-center xl:justify-center lg:hidden">
-            <img src="@/assets/user-512.png" class="h-[18px]">
+          <button class="box pl-2.5 xl:h-8 xl:w-8 xl:m-auto xl:flex xl:items-center xl:justify-center lg:hidden">
+            <img src="@/assets/user-512.png" class="w-[16px] h-[16px]">
           </button>
         </div>
       </div>
     </div>
-    <div class="second-nav xl:flex xl:justify-between xl:items-end xl:h-[50px] xl:p-4 xl:mt-3 lg:hidden">
-      <div class="flex items-end">
-        <button class="text-4xl mr-3 md:hidden lg:block font-medium news" style="color: #505050">НОВОСТИ</button>
-        <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Дайджест</button>
-        <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Политика</button>
-        <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Культура</button>
-        <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Экономика</button>
-        <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Образование</button>
-        <button class="mx-3 text-sm news" style="color: #505050">Туризм</button>
-        <button class="mx-3 text-sm news" style="color: #505050">Технологии</button>
-        <button class="mx-3 text-sm news" style="color: #505050">Здоровье</button>
+    <div class="second-nav xl:flex xl:justify-between xl:items-end xl:h-[50px] xl:p-4 xl:mt-3 lg:hidden md:w-[100%] md:h-[80px]">
+      <div class="flex items-end md:flex md:justify-center md:items-center md:flex-wrap md:pt-[20px] ">
+        <button class="text-4xl mr-3 lg:block md:hidden font-medium news" style="color: #505050">НОВОСТИ</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Дайджест</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Политика</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Культура</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Экономика</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Образование</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Туризм</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Технологии</button>
+        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Здоровье</button>
       </div>
-      <button class="text-sm news" style="color: #505050">Пoказать еще</button>
+      <button class="text-sm news md:hidden" style="color: #505050">Пoказать еще</button>
     </div>
     <hr style="width: 98%; margin: auto;">
     <div class="flex">
-      <div class="border w-[220px] px-4">
+      <div class="border w-[220px] px-4 md:hidden lg:block">
         <span class="font-medium text-lg">Последние новости</span>
         <!-- Tabs -->
         <ul id="tabs" class="inline-flex w-full border-b">
@@ -116,7 +116,7 @@
                 <span class="text-xs mx-1">{{ trends.views }}</span>
               </div>
             </div>
-            <span class="lenta">{{ trends.text }}</span>
+            <router-link to="/NewsComp"><span class="lenta">{{ trends.text }}</span></router-link>
             <hr style="width: 100%; margin-top: 10px; margin-bottom: 15px">
           </div>
           <div id="second" class="hidden p-4">
@@ -143,7 +143,7 @@
         <img src="@/assets/gif/1db207ea77dd7c4924f3fd368f84cd56.gif" class="mt-[20px]">
       </div>
 
-      <div class="mainPage w-[75%] p-4">
+      <div class="mainPage w-[75%] p-4 md:w-full">
         <span class="text-2xl font-bold">В Туркменистане стартует финальная часть проекта «Юные вестники мира»</span>
         <div class="flex my-5">
           <span class="font-bold">15:37</span> 
@@ -157,23 +157,23 @@
             <span class="mx-1">483</span>
           </div>
         </div>
-        <img class="rounded-md" src="@/assets/aboutView/c71d765b359015e223273d36bf9d55f3-8970836-382x254-2.webp">
+        <img class="rounded-md md:w-full" src="@/assets/aboutView/c71d765b359015e223273d36bf9d55f3-8970836-382x254-2.webp">
         <span class="text-xs"> Фото: turkmenistan.gov.tm </span>
         <div class="article_text" v-for="(item, i) in article_text" :key="i" >
           <p>{{ item.text }}</p>
         </div>
         <hr style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 20px;">
-        <div class="flex h-[30px]">
+        <div class="flex h-[30px] md:flex md:flex-col md:h-[80px]">
           <h1>Поделиться в социальной сети:</h1>
-          <div class="flex w-[10%] mx-2">
-            <img class="mx-0.5" src="@/assets/set/VK_Compact_Logo_(2021-present).svg.png">
-            <img class="mx-0.5" src="@/assets/set/x-social-media-logo-icon.webp">
-            <img class="mx-0.5" src="@/assets/set/Odnoklassniki.svg.png">
-            <img class="mx-0.5" src="@/assets/set/images.png">
+          <div class="flex w-[10%] mx-2 md:mx-0">
+            <img class="mx-0.5 md:w-[24px] md:h-[24px]" src="@/assets/set/VK_Compact_Logo_(2021-present).svg.png">
+            <img class="mx-0.5 md:w-[24px] md:h-[24px]" src="@/assets/set/x-social-media-logo-icon.webp">
+            <img class="mx-0.5 md:w-[24px] md:h-[24px]" src="@/assets/set/Odnoklassniki.svg.png">
+            <img class="mx-0.5 md:w-[24px] md:h-[24px]" src="@/assets/set/images.png">
           </div>
         </div>
-        <h1 class="mb-[10px]">Если вы заметили ошибку в тексте, пожалуйста, выделите её и нажмите Ctrl+Enter</h1>
-        <img src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif">
+        <h1 class="mb-[10px] md:hidden lg:block">Если вы заметили ошибку в тексте, пожалуйста, выделите её и нажмите Ctrl+Enter</h1>
+        <img src="@/assets/img/3b81b7a6f8f89c1765c9f531ff6ce0c3.gif" class="md:hidden lg:block">
         <h1 class="mt-[40px] text-red-800 font-medium text-[19px]">КОММЕНТАРИИ</h1>
         <hr style="width: 100%; margin: auto; margin-bottom: 10px; margin-top: 5px;">
         <input class="w-full  fake_comment_input" type="text">
@@ -181,13 +181,13 @@
         <h1 class="mt-[40px] text-red-800 font-medium text-[19px]">ЧИТАЙТЕ ТАКЖЕ</h1>
         <hr style="width: 100%; margin: auto; margin-bottom: 10px; margin-top: 5px;">
         <div class="flex flex-wrap">
-          <div v-for="(item, i) in read_more" :key="i" style="flex: 1 0 300px;">
-            <img :src="item.image" class="rounded-md h-[200px]">
-            <p class="mt-2 text-[14px] w-[300px]">{{ item.text }}</p>
+          <div v-for="(item, i) in read_more" :key="i" style="flex: 1 0 300px;" class="md:flex">
+            <img :src="item.image" class="rounded-md h-[200px] md:w-[175px] md:py-3 md:mr-2">
+            <p class="mt-2 text-[14px] w-[300px] md:w-auto md:font-medium md:text-[14px]">{{ item.text }}</p>
           </div>
         </div>
       </div>
-      <div class="ads w-[25%] p-4">
+      <div class="ads w-[25%] p-4 md:hidden lg:block">
         <img class="rounded-lg" src="@/assets/img/53daeb106dab95f9c75ffc67d6f5c2d8.gif">
         <img class="py-2" src="@/assets/img/9772b21286f1c201eb7c03588cef8f3c.jpg">
         <hr style="width: 100%; margin: auto; margin-top: 20px; margin-bottom: 20px;">
@@ -419,6 +419,9 @@ export default {
 </script>
 
 <style scoped>
+.news:hover{
+  color: red !important;
+}
 .pagination {
     margin-top: 10px;
   }
