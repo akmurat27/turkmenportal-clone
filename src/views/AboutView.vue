@@ -1,7 +1,7 @@
 <template>
   <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
-    <img class="w-full md:hidden" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-    <div class="flex justify-between items-center h-12 md:flex md:justify-between md:items-center md:hidden " style="background-color: #F1F1F1;">
+    <img class="w-full md:hidden hidden lg:block" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+    <div class="lg:flex lg:justify-between lg:items-center lg:h-12 " style="background-color: #F1F1F1;">
       <div class="lg:flex lg:items-center md:flex md:items-center md:text-xs md:h-12" style="padding: 0 15px;">
         <span class="date_time">
           {{ currentDate }}
@@ -60,12 +60,12 @@
             <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
             <span class="mx-2 text-xs font-medium lg:block md:hidden"> ВСЕ КАТЕГОРИИ </span>
           </button>
-          <button class="mx-2 text-xs font-medium h-8 box md:hidden">НОВОСТИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box md:hidden">СТАТЬИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box md:hidden">МЕДИА</button>
-          <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">БИЗНЕС</button>
-          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
-          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ЧЛЕНЫ СППТ</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">НОВОСТИ</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">СТАТЬИ</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">МЕДИА</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">БИЗНЕС</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
+          <button style="font-size: 12px" class="mx-2 font-medium h-8 box lg:block md:hidden">ЧЛЕНЫ СППТ</button>
         </div>
         <div class="lg:flex lg:items-center md:flex md:items-center">
           <button class="flex items-center box h-8 px-2.5" >
@@ -83,16 +83,22 @@
       </div>
     </div>
     <div class="second-nav xl:flex xl:justify-between xl:items-end xl:h-[50px] xl:p-4 xl:mt-3 lg:hidden md:w-[100%] md:h-[80px]">
-      <div class="flex items-end md:flex md:justify-center md:items-center md:flex-wrap md:pt-[20px] ">
-        <button class="text-4xl mr-3 lg:block md:hidden font-medium news" style="color: #505050">НОВОСТИ</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Дайджест</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Политика</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Культура</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Экономика</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px]  lg:block news" style="color: #505050">Образование</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Туризм</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Технологии</button>
-        <button class="mx-3 md:mx-2 text-sm md:text-[15px] news" style="color: #505050">Здоровье</button>
+      <div class="flex items-end flex-wrap md:flex md:justify-center md:items-center md:flex-wrap md:pt-[20px] ">
+        <button class="pr-[20px] md:mx-2 md:text-[15px]  lg:block news" style="color: #505050; font-size: 12px">Дайджест</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px]  lg:block news" style="color: #505050; font-size: 12px">Политика</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px]  lg:block news" style="color: #505050; font-size: 12px">Культура</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px]  lg:block news" style="color: #505050; font-size: 12px">Экономика</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px]  lg:block news" style="color: #505050; font-size: 12px">Образование</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Туризм</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Технологии</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Спорт</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">В мире</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Бизнес</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Здоровье</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Энергетика</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Общество</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">Авто</button>
+        <button class="pr-[20px] md:mx-2 md:text-[15px] news"           style="color: #505050; font-size: 12px">СППТ-НОВОСТИ</button>
       </div>
       <button class="text-sm news md:hidden" style="color: #505050">Пoказать еще</button>
     </div>
@@ -238,9 +244,15 @@ export default {
       required: true
     }
   },
+  
+  mounted() {
+    this.getCurrentDateTime();
+  },
   data: () => ({
     currentSlide: 0,
     slideWidth: 385,
+    currentDate: '',
+    currentTime: '',
     date: new Date(),
     read_more: [
       {
@@ -384,7 +396,12 @@ export default {
     },
     goToSlide(index) {
       this.currentSlide = index;
-    }
+    },
+    getCurrentDateTime() {
+      const currentDate = new Date();
+      this.currentDate = currentDate.toDateString();
+      this.currentTime = currentDate.toLocaleTimeString();
+    },
   },
   computed: {
     currentMonth() {
@@ -419,6 +436,10 @@ export default {
 </script>
 
 <style scoped>
+.box:hover {
+  background-color: rgb(255, 255, 255); /* Change to your desired hover color */
+  color: #000000; /* Change to your desired hover text color */
+}
 .news:hover{
   color: red !important;
 }
@@ -571,5 +592,53 @@ button {
     line-height: 1.45;
     /* color: #000; */
     display: block;
+}
+.date_time {
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 150px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: "PT Root UI", "Commissioner", Helvetica, sans-serif, Arial, Verdana;
+}
+
+.weather_info_temp {
+    font-size: 18px;
+}
+.weather_info_caption {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px 10px auto 10px;
+    font-size: 12px;
+}
+.weather_info_icon img {
+    width: 25px;
+    margin-right: 5px;
+}
+.weather_info_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+.weather_info {
+    display: inline-block;
+    width: 135px;
+    height: 12px;
+}
+.weather_info a {
+  position: relative;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  background: #dee8ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #554d4d;
 }
 </style>
