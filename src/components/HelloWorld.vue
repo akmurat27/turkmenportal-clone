@@ -112,14 +112,14 @@
               </div>
             </div>
             <div class="xl:flex xl:flex-col xl:w-[59%]">
-              <div class="lg:flex lg:p-4 lg:ml-5" v-for="(novosti , i) in news" :key="i">
-                <img class="lg:rounded-md" :src="novosti.img">
+              <div class="lg:flex lg:p-4 lg:ml-5 product" v-for="product in displayedProducts" :key="product.id">
+                <img class="w-[90px] h-[60px]" :src="product.image">
                 <div class="flex flex-col text-left mx-3 md:justify-center">
                   <div class="text-red-800 text-sm">
-                    {{ novosti.text }}
+                    {{ product.title }}
                   </div>
                   <div class="font-sans text-sm">
-                    {{ novosti.content }}
+                    {{ product.price }}
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@
 
 
       <section class="lg:flex lg:justify-between lg:mt-8 lg:p-4 md:p-4">
-        <div class="СПОРТ lg:w-[30%]">
+        <!-- <div class="СПОРТ lg:w-[30%]">
           <div class="flex justify-between items-end">
             <button class="text-4xl news">СПОРТ</button>
             <button class="text-sm news">Показать еще</button>
@@ -197,6 +197,21 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div> -->
+        <div v-for="(sportGames, i) in sportNews" :key="i">
+          <div class="flex justify-between items-end">
+            <button class="text-4xl news">{{sportGames.title}}</button>
+            <button class="text-sm news">Показать еще</button>
+          </div>
+          <div class="flex" v-for="(games, i) in sportGames.sport" :key="i">
+            <img class="lg:m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
+            <div class="text-red-600 text-sm">
+                  {{ games.text }}
+                </div>
+                <div class="text-sm">
+                  {{ games.content }}
+                </div>
           </div>
         </div>
       </section>
@@ -362,6 +377,7 @@
 </template>
 
 <script> 
+import axios from 'axios';
 import fooTer from '@/components/fooTer.vue'
 export default {
   name: 'HelloWorld',
@@ -375,6 +391,8 @@ export default {
     this.getCurrentDateTime();
   },
   data: () => ({
+    products: [],
+    displayedProducts: [],
     isDragging: false,
     startPosition: 0,
     currentTranslate: 0,
@@ -414,102 +432,6 @@ export default {
       text: "Сегодня 12:56",
       content: "Посол Туркменистана в Румынии и ректор нефтегазового вуза Плоешти обсудили дальнейшее сотрудничество",
     }
-    ],
-    sport: [
-      {
-        image: require('@/assets/sport/11ff870763bf8262951f66ff8e8ce625-8967079-90x114-2.webp'),
-        text: 'Сегодня 11:01',
-        content: '«Реал» и «Манчестер Сити» вышли в 1/4 финала Лиги чемпионов УЕФА',
-      },
-      {
-        image: require('@/assets/sport/a15e408cd2f7f47d2a2cc60ea15b6da4-8966734-90x114-2.webp'),
-        text: 'Сегодня 10:46',
-        content: 'Гол Теймура Чарыева помог «Абдыш-Ате» разгромить «Тайчунг Футуро» в четвертьфинале Кубка АФК',
-      },
-      {
-        image: require('@/assets/sport/27da55f8cdc7659016bb235e3972f241-8966778-90x114-2.webp'),
-        text: 'Вчера 10:39',
-        content: 'Сборная Туркменистана готовится к ключевым матчам отбора на ЧМ-2026 и Кубок Азии-2027 по футболу',
-      },
-      {
-        image: require('@/assets/sport/e300f180f3f34fb81ca0ce3e46c8f70e-8966738-90x114-2.webp'),
-        text: 'Вчера 07:34',
-        content: 'Определились первые четвертьфиналисты европейской Лиги чемпионов',
-      },
-      {
-        image: require('@/assets/sport/a15e408cd2f7f47d2a2cc60ea15b6da4-8966734-90x114-2.webp'),
-        text: ' Вчера 07:26',
-        content: 'Мастера тхэквондо ITF из Туркменистана завоевали 34 медали на международном турнире в Малайзии',
-      },
-      {
-        image: require('@/assets/sport/73a01751a8a5b5b7ef34028b294b6ebb-8966621-90x114-2.webp'),
-        text: '05.03.2024',
-        content: 'Туркменские вузы определили сильнейших боксеров на Универсиаде в Ашхабаде',
-      },
-    ],
-    biznes: [
-      {
-        image: require('@/assets/bisnez/db12c5f49d91ddc214d67209e533cf26-8967268-90x114-2.webp'),
-        text: 'Сегодня 10:39',
-        content: 'Ресторан Soltan в ТРЦ «Беркарар» принимает заявки на изготовление тортов'
-      },
-      {
-        image: require('@/assets/bisnez/f12d1b487aa42274e302df8f4197c2e0-8967175-90x114-2.webp'),
-        text: '07.03.2024',
-        content: 'Мобильное приложение Broker: новый подход к тендерам и аукционам'
-      },
-      {
-        image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
-        text: '07.03.2024',
-        content: 'Туркменистан представил свой туристический потенциал на ITB Berlin 2024'
-      },
-      {
-        image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
-        text: '07.03.2024',
-        content: 'Däp представляет новую весеннюю коллекцию URBAN'
-      },
-      {
-        image: require('@/assets/bisnez/9c7a0bf465452af1a97e8fba5375b627-8967086-90x114-2.webp'),
-        text: '07.03.2024',
-        content: '«Туркменпочта»: надежная и быстрая доставка грузов в любой уголок Туркменистана'
-      },
-      {
-        image: require('@/assets/bisnez/871b00a4e0a067fc0cb2c58389893434-8967062-90x114-2.webp'),
-        text: '07.03.2024',
-        content: 'В магазине EuroHome TM назвали преимущества европейских брендов сантехники'
-      }
-    ],
-    mir: [
-      {
-        image: require('@/assets/v-mire/811c14551c6504a23a17724f0141825f-8967314-90x114-2.webp'),
-        data: 'Сегодня 14:28',
-        content: 'Юрию Гагарину сегодня исполнилось бы 90 лет'
-      },
-      {
-        image: require('@/assets/v-mire/437aa6b9407a0085619bedf8fcbd74c5-8967313-90x114-2.webp'),
-        data: 'Сегодня 14:22',
-        content: 'Эрдоган заявил, что не будет баллотироваться в 2028 году'
-      },
-      {
-        image: require('@/assets/v-mire/833cfc273cddeded8669a184db49f606-8967282-90x114-2.webp'),
-        data: 'Сегодня 11:34',
-        content: '«Сёгун» бьет рекорды на стриминге'
-      },
-      {
-        image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
-        data: 'Сегодня 10:49',
-        content: 'Человек оказался главным кошмаром дикой природы'
-      },
-      {
-        image: require('@/assets/v-mire/f1e85c4d20c2e98ba3b9faae4fbc1829-8967263-90x114-2.webp'),
-        data: 'Сегодня 10:27',
-        content: 'Британские ученые создают методы по раскрытию преступлений в космосе'
-      },
-      {
-        image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
-        data: 'Сегодня 09:37',
-        content: 'Исследование: сигнал тревоги медицинского оборудования может не спасти пациентов от гибели'
-      }
     ],
     statyi: [
       {
@@ -708,10 +630,120 @@ export default {
       }
 
     ],
+    sportNews: [
+      { 
+        title: "СПОРТ",
+        sport: [        
+        {
+          image: require('@/assets/sport/11ff870763bf8262951f66ff8e8ce625-8967079-90x114-2.webp'),
+          text: 'Сегодня 11:01',
+          content: '«Реал» и «Манчестер Сити» вышли в 1/4 финала Лиги чемпионов УЕФА',
+        },
+        {
+          image: require('@/assets/sport/a15e408cd2f7f47d2a2cc60ea15b6da4-8966734-90x114-2.webp'),
+          text: 'Сегодня 10:46',
+          content: 'Гол Теймура Чарыева помог «Абдыш-Ате» разгромить «Тайчунг Футуро» в четвертьфинале Кубка АФК',
+        },
+        {
+          image: require('@/assets/sport/27da55f8cdc7659016bb235e3972f241-8966778-90x114-2.webp'),
+          text: 'Вчера 10:39',
+          content: 'Сборная Туркменистана готовится к ключевым матчам отбора на ЧМ-2026 и Кубок Азии-2027 по футболу',
+        },
+        {
+          image: require('@/assets/sport/e300f180f3f34fb81ca0ce3e46c8f70e-8966738-90x114-2.webp'),
+          text: 'Вчера 07:34',
+          content: 'Определились первые четвертьфиналисты европейской Лиги чемпионов',
+        },
+        {
+          image: require('@/assets/sport/a15e408cd2f7f47d2a2cc60ea15b6da4-8966734-90x114-2.webp'),
+          text: ' Вчера 07:26',
+          content: 'Мастера тхэквондо ITF из Туркменистана завоевали 34 медали на международном турнире в Малайзии',
+        },
+        {
+          image: require('@/assets/sport/73a01751a8a5b5b7ef34028b294b6ebb-8966621-90x114-2.webp'),
+          text: '05.03.2024',
+          content: 'Туркменские вузы определили сильнейших боксеров на Универсиаде в Ашхабаде',
+        },
+        ]
+      },
+      {
+        title: "БИЗНЕС",
+        sport: [
+          {
+            image: require('@/assets/bisnez/db12c5f49d91ddc214d67209e533cf26-8967268-90x114-2.webp'),
+            text: 'Сегодня 10:39',
+            content: 'Ресторан Soltan в ТРЦ «Беркарар» принимает заявки на изготовление тортов'
+          },
+          {
+            image: require('@/assets/bisnez/f12d1b487aa42274e302df8f4197c2e0-8967175-90x114-2.webp'),
+            text: '07.03.2024',
+            content: 'Мобильное приложение Broker: новый подход к тендерам и аукционам'
+          },
+          {
+            image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
+            text: '07.03.2024',
+            content: 'Туркменистан представил свой туристический потенциал на ITB Berlin 2024'
+          },
+          {
+            image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
+            text: '07.03.2024',
+            content: 'Däp представляет новую весеннюю коллекцию URBAN'
+          },
+          {
+            image: require('@/assets/bisnez/9c7a0bf465452af1a97e8fba5375b627-8967086-90x114-2.webp'),
+            text: '07.03.2024',
+            content: '«Туркменпочта»: надежная и быстрая доставка грузов в любой уголок Туркменистана'
+          },
+          {
+            image: require('@/assets/bisnez/871b00a4e0a067fc0cb2c58389893434-8967062-90x114-2.webp'),
+            text: '07.03.2024',
+            content: 'В магазине EuroHome TM назвали преимущества европейских брендов сантехники'
+          }
+        ],
+      },
+      {
+        title: "В МИРЕ",
+        sport: [
+          {
+            image: require('@/assets/v-mire/811c14551c6504a23a17724f0141825f-8967314-90x114-2.webp'),
+            data: 'Сегодня 14:28',
+            content: 'Юрию Гагарину сегодня исполнилось бы 90 лет'
+          },
+          {
+            image: require('@/assets/v-mire/437aa6b9407a0085619bedf8fcbd74c5-8967313-90x114-2.webp'),
+            data: 'Сегодня 14:22',
+            content: 'Эрдоган заявил, что не будет баллотироваться в 2028 году'
+          },
+          {
+            image: require('@/assets/v-mire/833cfc273cddeded8669a184db49f606-8967282-90x114-2.webp'),
+            data: 'Сегодня 11:34',
+            content: '«Сёгун» бьет рекорды на стриминге'
+          },
+          {
+            image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
+            data: 'Сегодня 10:49',
+            content: 'Человек оказался главным кошмаром дикой природы'
+          },
+          {
+            image: require('@/assets/v-mire/f1e85c4d20c2e98ba3b9faae4fbc1829-8967263-90x114-2.webp'),
+            data: 'Сегодня 10:27',
+            content: 'Британские ученые создают методы по раскрытию преступлений в космосе'
+          },
+          {
+            image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
+            data: 'Сегодня 09:37',
+            content: 'Исследование: сигнал тревоги медицинского оборудования может не спасти пациентов от гибели'
+          }
+        ],
+      }
+
+    ],
     currentSlide: 0,
     slideWidth: 300, // Adjust this value as needed
   }),
-
+  created() {
+    this.getData()
+  },
   methods: {
     nextSlide() {
       if (this.currentSlide < this.items.length - 1) {
@@ -743,13 +775,33 @@ export default {
         this.currentTranslate = this.previousPosition + diff;
         this.$refs.container.style.transform = `translateX(${this.currentTranslate}px)`;
       }
+    },
+    getData() {
+      axios.get('https://fakestoreapi.com/products')
+      .then((res) => {
+          this.products = res.data
+          this.displayedProducts = this.products.slice(0, 6);
+          console.log(res.data)
+      })
+      .catch((err) => {
+          console.log(err)
+      })
     }
-  }
+  },
 
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.product{
+    cursor: pointer;
+}
+.truncate{
+    max-width: 400px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
 .carouselVue {
     overflow: hidden;
     width: 100%;

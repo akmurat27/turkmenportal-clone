@@ -45,17 +45,53 @@
                 </div>
             </div>
         </div>
+        <div class="p-4 w-[50%] m-auto">
+            <div v-for="product in products" :key="product.id" class="product flex p-4">
+                <img class="w-[90px] h-[60px]" :src="product.image">
+                <div class="flex flex-col pl-2">
+                    <div class="text-red-500 text-md font-bold truncate">{{ product.title }}</div>
+                    <div class="text-gray-900 font-bold">{{ product.price }}</div>
+                    <div class="text-gray-700">{{ product.category }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-export default (
-    {
-        getCurrentDateTime() {
-            const currentDate = new Date();
-            this.currentDate = currentDate.toDateString();
-            this.currentTime = currentDate.toLocaleTimeString();
-        },
-    }
-)
+import axios from 'axios';
+export default{
+    data () {
+        return {
+            products: []
+        }
+    },
+    created() {
+        this.getData()
+    },
+    methods: {
+        getData() {
+            axios.get('https://fakestoreapi.com/products')
+            .then((res) => {
+                this.products = res.data
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+    },
+};
 </script>
+
+<style>
+.product{
+    cursor: pointer;
+}
+.truncate{
+    max-width: 400px;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
+</style>
