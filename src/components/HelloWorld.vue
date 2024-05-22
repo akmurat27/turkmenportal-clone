@@ -1,8 +1,8 @@
 <template>
-  <div class="shadow-lg shadow-red-500 w-[80%] m-auto">
-    <img class="w-full" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
-    <div class="lg:flex lg:justify-between lg:items-center lg:h-12 " style="background-color: #F1F1F1;">
-      <div class="lg:flex lg:items-center md:flex md:items-center md:text-xs md:h-12" style="padding: 0 15px;">
+  <div class="shadow-lg shadow-red-500 w-[80%] md:w-[80%] lg:w-[60%] m-auto">
+    <img class="w-full md:w-auto hidden md:block lg:block" src="@/assets/img/e5832b4ed51d3df3ec542e6dc1c92dff.gif">
+    <div class="flex justify-between items-center h-12 lg:h-12 lg:flex lg:flex-wrap md:flex md:flex-wrap md:h-20" style="background-color: #F1F1F1;">
+      <div class="flex items-center hidden md:block lg:blocks md:flex md:text-[11px] md:items-center" style="padding: 0 15px;">
         <span class="date_time">
           {{ currentDate }}
           {{ currentTime }}
@@ -19,23 +19,23 @@
           </a>
         </div>
         <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
-        <button class="mx-3 news">
+        <button class="mx-3 md:mx-2 news">
           <span style="font-size: 12px;">
             Курс валюты Центрального банка
           </span>
         </button>
         <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
-        <button class="mx-3 news">
+        <button class="mx-3 md:mx-2 news">
           <span style="font-size: 12px;">
             Список банкоматов
           </span>
         </button>
         <div style="border-right: 1px solid grey; height: 13px; margin-left: 6px;"></div>
-        <span class="mx-3 news" style="font-size: 12px; cursor: pointer;">18+</span>
+        <span class="mx-3 md:mx-2 news" style="font-size: 12px; cursor: pointer;">18+</span>
       </div>
       <div class="pull-right flex items-center justify-end" style="padding: 0 15px;">
         <div>
-          <span style="font-size: 12px;">Выберите язык:</span>
+          <span style="font-size: 12px;" class="hidden md:block lg:block">Выберите язык:</span>
         </div>
         <div class="flex mx-1">
           <img class="mx-1" style="cursor: pointer;" src="@/assets/yazyki/tm.png">
@@ -46,83 +46,85 @@
       </div>
     </div>
     <div class="">
-      <div class="lg:flex lg:items-center lg:p-4">
+      <div class="flex justify-between items-center p-4">
         <div class="">
-          <img src="@/assets/img/logo_tp.png" class="w-full h-full">
+          <img src="@/assets/img/logo_tp.png" class="w-full h-full md:w-auto md:h-auto">
         </div>
         <div class="px-4">
-          <img class="rounded-lg w-full" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
+          <img class="rounded-lg w-full md:w-auto hidden md:block lg:block" src="@/assets/img/3cc278f317104ffe0e261fdbf032062c.gif">
         </div>
       </div>
-      <div class="lg:flex lg:justify-between lg:items-center lg:bg-red-800 lg:text-white lg:h-10 md:flex md:justify-between md:items-center md:bg-red-800 md:text-white md:h-10 md:p-4">
-        <div class="xl:flex xl:items-center md:flex md:items-center">
+      <div class="flex justify-between items-center bg-red-800 text-white h-10 md:flex md:justify-between md:items-center md:bg-red-800 md:text-white md:h-10 md:p-4">
+        <div class="flex items-center lg:flex lg:items-center md:flex md:items-center">
           <button class="flex items-center box h-8">
-            <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px]">
-            <span class="mx-2 text-xs font-medium lg:block md:hidden"> ВСЕ КАТЕГОРИИ </span>
+            <img src="@/assets/icons8-menu.svg" class="w-[12px] h-[12px] sm:mx-2">
+            <span class="mx-2 text-xs font-medium hidden lg:block md:hidden"> ВСЕ КАТЕГОРИИ </span>
           </button>
-          <button class="mx-2 text-xs font-medium h-8 box">НОВОСТИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box">СТАТЬИ</button>
-          <button class="mx-2 text-xs font-medium h-8 box">МЕДИА</button>
-          <button class="mx-2 text-xs font-medium h-8 box lg:block md:hidden">БИЗНЕС</button>
-          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
-          <button class="mx-2 text-xs font-medium h-8 box xl:block md:hidden lg:hidden">ЧЛЕНЫ СППТ</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden md:block lg:block box">НОВОСТИ</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden md:block lg:block box">СТАТЬИ</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden md:block lg:block box">МЕДИА</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden box lg:block md:hidden">БИЗНЕС</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden box lg:block md:hidden ">ИНФОРМАЦИОННАЯ ПРОГРАММА</button>
+          <button class="mx-2 text-xs font-medium h-8 hidden box lg:block md:hidden ">ЧЛЕНЫ СППТ</button>
         </div>
-        <div class="lg:flex lg:items-center md:flex md:items-center">
-          <button class="flex items-center mx-2 box h-8" >
+        <div class="flex items-center lg:flex lg:items-center md:flex md:items-center">
+          <button class="flex items-center lg:mx-2 mx-1  box h-8" >
             <img src="@/assets/plus-5-512.png" class="w-[16px] h-[16px] mx-2">
-            <span class="text-xs font-medium lg:block md:hidden">ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
+            <span class="text-xs font-medium hidden lg:block md:hidden">ДОБАВИТЬ ОБЪЯВЛЕНИЕ</span>
           </button>
-          <button class="flex items-center mx-2 box h-8">
+          <button class="flex items-center lg:mx-2 mx-1  box h-8">
             <img src="@/assets/search-13-512.png" class="w-[16px] h-[16px] mx-2">
-            <span class="text-xs font-medium lg:block md:hidden">ПОИСК</span>
+            <span class="text-xs font-medium hidden lg:block md:hidden">ПОИСК</span>
           </button>
-          <button class="box xl:h-8 xl:ml-2 xl:w-8 xl:m-auto xl:flex xl:items-center xl:justify-center lg:hidden">
-            <img src="@/assets/user-512.png" class="h-[18px]">
+          <button class="box lg:h-8 lg:ml-2 lg:w-8 mx-1  lg:m-auto lg:flex lg:items-center lg:justify-center lg:block block md:hidden">
+            <img src="@/assets/user-512.png" class="h-[18px] sm:mx-2">
           </button>
         </div>
       </div>
-      <div class="second-nav xl:flex xl:justify-between xl:items-end xl:h-[50px] xl:p-4 xl:mt-3 lg:hidden">
+      <div class="second-nav flex justify-between items-end h-[50px] p-4 mt-3 md:mt-0 lg:mt-3">
         <div class="flex items-end">
-          <button class="text-4xl mr-3 md:hidden lg:block font-medium news" style="color: #505050">НОВОСТИ</button>
-          <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Дайджест</button>
-          <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Политика</button>
-          <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Культура</button>
-          <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Экономика</button>
-          <button class="mx-3 text-sm md:hidden lg:block news" style="color: #505050">Образование</button>
-          <button class="mx-3 text-sm news" style="color: #505050">Туризм</button>
-          <button class="mx-3 text-sm news" style="color: #505050">Технологии</button>
-          <button class="mx-3 text-sm news" style="color: #505050">Здоровье</button>
+          <button class="text-2xl lg:text-4xl lg:mr-3 md:hidden lg:block font-medium news" style="color: #505050">НОВОСТИ</button>
+          <button class="mx-3 text-sm hidden md:hidden lg:block news" style="color: #505050">Дайджест</button>
+          <button class="mx-3 text-sm hidden md:hidden lg:block news" style="color: #505050">Политика</button>
+          <button class="mx-3 text-sm hidden md:hidden lg:block news" style="color: #505050">Культура</button>
+          <button class="mx-3 text-sm hidden md:hidden lg:block news" style="color: #505050">Экономика</button>
+          <button class="mx-3 text-sm hidden md:hidden lg:block news" style="color: #505050">Образование</button>
+          <button class="mx-3 text-sm hidden md:block lg:block news" style="color: #505050">Туризм</button>
+          <button class="mx-3 text-sm hidden md:block lg:block news" style="color: #505050">Технологии</button>
+          <button class="mx-3 text-sm hidden md:block lg:block news" style="color: #505050">Здоровье</button>
         </div>
         <button class="text-sm news" style="color: #505050">Пoказать еще</button>
       </div>
-      <hr style="width: 98%; margin: auto;">
+      <hr style="width: 95%; margin: auto;">
       <div class="xl:flex xl:p-4 xl:justify-between md:p-4 lg:flex lg:p-4 lg:justify-between">
         <div class="lg:w-[100%]">
           <div class="lg:flex lg:h-[640px]">
-            <div class="lg:w-[42%] lg:pt-4">
+            <div class="p-4 lg:w-[42%] lg:pt-4 lg:p-0">
               <router-link to="/about">  
-                <img class="rounded-md lg:w-full md:w-full" style="cursor: pointer" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
+                <img class="rounded-md w-full lg:p-0 lg:w-full md:w-full" style="cursor: pointer" src="@/assets/img/de579dad30a2e6e4b5cf2019bb541791-8966694-380x253-2.webp">
               </router-link>
-                <div class="text-left mt-3">
-                <span class="text-red-800">Сегодня 19:47</span>
-              <router-link to="/about">
-                <h1 class="font-sans text-lg font-bold my-3" style="cursor: pointer">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
-              </router-link>
+              <div class="lg:text-left lg:mt-3">
+                <span class="text-red-800 mt-[10px] lg:mt-0">Сегодня 19:47</span>
+                <router-link to="/about">
+                  <h1 class="font-sans text-lg font-bold my-3" style="cursor: pointer">В Туркменистане стартовала «Академия для женщин-предпринимателей»</h1>
+                </router-link>
                 <p class="my-3 font-sans">В Ашхабаде, Дашогузе, Мары и Туркменабате 2 марта стартовали курсы «Академии для женщин-предпринимателей» (AWE). Программа реализуется Посольством США в Туркменистане совместно с Союзом...</p>
               </div>
             </div>
             <div class="xl:flex xl:flex-col xl:w-[59%]">
-              <div class="lg:flex lg:p-4 lg:ml-5 product" v-for="product in displayedProducts" :key="product.id">
-                <img class="w-[90px] h-[60px]" :src="product.image">
-                <div class="flex flex-col text-left mx-3 md:justify-center">
-                  <div class="text-red-800 text-sm">
-                    {{ product.title }}
-                  </div>
-                  <div class="font-sans text-sm">
-                    {{ product.price }}
+              <router-link to="/productComp">
+                <div class="lg:flex lg:p-4 lg:ml-5 items-start product" v-for="product in displayedProducts" :key="product.id">
+                  <img style="background-position: center !important; background-size: cover !important;  width: 80px; height: 80px;" :src="product.image">
+                  <div class="flex flex-col text-left mx-3 md:justify-center">
+                    <div class="text-red-800 text-sm">
+                      {{ product.title }}
+                    </div>
+                    <div class="font-sans text-sm">
+                      {{ product.price }}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </router-link>
             </div>
           </div>
           <div class="lg:block md:hidden">
@@ -135,83 +137,23 @@
         </div>
       </div>
 
-
-
-
       <section class="lg:flex lg:justify-between lg:mt-8 lg:p-4 md:p-4">
-        <!-- <div class="СПОРТ lg:w-[30%]">
-          <div class="flex justify-between items-end">
-            <button class="text-4xl news">СПОРТ</button>
-            <button class="text-sm news">Показать еще</button>
-          </div>
-          <hr class="border-t-2 border-grey my-3">
-          <div class="flex flex-col ">
-            <div class="flex md:my-3" v-for="(games, i) in sport" :key="i">
-              <img class="lg:m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
-              <div class="flex flex-col text-left m-3">
-                <div class="text-red-600 text-sm">
-                  {{ games.text }}
-                </div>
-                <div class="text-sm">
-                  {{ games.content }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="Бизнес lg:w-[30%]">
-          <div class="flex justify-between items-end">
-            <button class="text-4xl news">БИЗНЕС</button>
-            <button class="text-sm news">Показать еще</button>
-          </div>
-          <hr class="border-t-2 border-grey my-3">
-          <div class="flex flex-col ">
-            <div class="flex md:my-3" v-for="(business, i) in biznes" :key="i">
-              <img :src="business.image" class="lg:m-3 rounded-lg" style="width: 100px; height: 70px;">
-              <div class="flex flex-col text-left m-3">
-                <div class="text-red-600 text-sm">
-                  {{ business.text }}
-                </div>
-                <div class="text-sm">
-                  {{ business.content }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="В Мире lg:w-[30%]">
-          <div class="flex justify-between items-end">
-            <button class="text-4xl news">В МИРЕ</button>
-            <button class="text-sm news">Показать еще</button>
-          </div>
-          <hr class="border-t-2 border-grey my-3">
-          <div class="flex flex-col ">
-            <div class="flex md:my-3" v-for="(world, i) in mir" :key="i">
-              <img :src="world.image" class="lg:m-3 rounded-lg" style="width: 100px; height: 70px;">
-              <div class="flex flex-col text-left m-3">
-                <div class="text-red-600 text-sm">
-                  {{ world.data }}
-                </div>
-                <div class="text-sm">
-                  {{ world.content }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <div v-for="(sportGames, i) in sportNews" :key="i">
-          <div class="flex justify-between items-end">
+        <div class="basis-1/3" v-for="(sportGames, i) in sportNews" :key="i">
+          <div class="flex justify-between items-end m-4">
             <button class="text-4xl news">{{sportGames.title}}</button>
             <button class="text-sm news">Показать еще</button>
           </div>
-          <div class="flex" v-for="(games, i) in sportGames.sport" :key="i">
-            <img class="lg:m-3 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
-            <div class="text-red-600 text-sm">
-                  {{ games.text }}
-                </div>
-                <div class="text-sm">
-                  {{ games.content }}
-                </div>
+          <hr class="border-t-2 border-grey m-4">
+          <div class="flex items-start" v-for="(games, i) in sportGames.sport" :key="i">
+            <img class="mx-3 mb-5 rounded-lg" :src="games.image" style="width: 100px; height: 70px;">
+            <div class="flex flex-col">
+              <div class="text-red-600 text-sm">
+                {{ games.text }}
+              </div>
+              <div class="text-sm">
+                {{ games.content }}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -706,32 +648,32 @@ export default {
         sport: [
           {
             image: require('@/assets/v-mire/811c14551c6504a23a17724f0141825f-8967314-90x114-2.webp'),
-            data: 'Сегодня 14:28',
+            text: 'Сегодня 14:28',
             content: 'Юрию Гагарину сегодня исполнилось бы 90 лет'
           },
           {
             image: require('@/assets/v-mire/437aa6b9407a0085619bedf8fcbd74c5-8967313-90x114-2.webp'),
-            data: 'Сегодня 14:22',
+            text: 'Сегодня 14:22',
             content: 'Эрдоган заявил, что не будет баллотироваться в 2028 году'
           },
           {
             image: require('@/assets/v-mire/833cfc273cddeded8669a184db49f606-8967282-90x114-2.webp'),
-            data: 'Сегодня 11:34',
+            text: 'Сегодня 11:34',
             content: '«Сёгун» бьет рекорды на стриминге'
           },
           {
             image: require('@/assets/v-mire/852cd4eaef905f7e3292af0104f46931-8967271-90x114-2.webp'),
-            data: 'Сегодня 10:49',
+            text: 'Сегодня 10:49',
             content: 'Человек оказался главным кошмаром дикой природы'
           },
           {
             image: require('@/assets/v-mire/f1e85c4d20c2e98ba3b9faae4fbc1829-8967263-90x114-2.webp'),
-            data: 'Сегодня 10:27',
+            text: 'Сегодня 10:27',
             content: 'Британские ученые создают методы по раскрытию преступлений в космосе'
           },
           {
             image: require('@/assets/v-mire/55e394218115b971a595ae7125cb0af8-8967255-90x114-2.webp'),
-            data: 'Сегодня 09:37',
+            text: 'Сегодня 09:37',
             content: 'Исследование: сигнал тревоги медицинского оборудования может не спасти пациентов от гибели'
           }
         ],
@@ -779,14 +721,15 @@ export default {
     getData() {
       axios.get('https://fakestoreapi.com/products')
       .then((res) => {
-          this.products = res.data
-          this.displayedProducts = this.products.slice(0, 6);
-          console.log(res.data)
+        this.products = res.data
+        this.displayedProducts = this.products.slice(0, 5);
+        console.log(res.data)
       })
       .catch((err) => {
           console.log(err)
       })
-    }
+    },
+
   },
 
 }
@@ -794,7 +737,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .product{
-    cursor: pointer;
+  cursor: pointer;
 }
 .truncate{
     max-width: 400px;
@@ -821,7 +764,7 @@ export default {
 }
 
 .date_time {
-    margin-right: 10px;
+    margin-right: 8px;
     display: inline-block;
     min-width: 150px;
     font-size: 12px;
