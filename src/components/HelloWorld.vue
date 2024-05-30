@@ -114,7 +114,7 @@
             <div class="xl:flex xl:flex-col xl:w-[59%]">
               <router-link to="/productComp">
                 <div class="lg:flex lg:p-4 lg:ml-5 items-start product" v-for="product in displayedProducts" :key="product.id">
-                  <img style="background-position: center !important; background-size: cover !important;  width: 80px; height: 80px;" :src="product.image">
+                  <img style="width: 80px; height: 80px;" :src="product.image" :to="'/productComp/:id' + product.id">
                   <div class="flex flex-col text-left mx-3 md:justify-center">
                     <div class="text-red-800 text-sm">
                       {{ product.title }}
